@@ -42,13 +42,6 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    
-    // This method is called when the server has determined that it
-    
-    // has enough information to create the NSURLResponse.
-    
-    
-    
     // It can be called multiple times, for example in the case of a
     
     // redirect, so each time we reset the data.
@@ -62,7 +55,6 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-
 {
     
     // Append the new data to receivedData.
@@ -73,22 +65,8 @@
     
 }
 
-- (void)connection:(NSURLConnection *)connection
-
-  didFailWithError:(NSError *)error
-
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    
-    // release the connection, and the data object
-    
-    //[connection release];
-    
-    // receivedData is declared as a method instance elsewhere
-    
-    //[receivedData release];
-    
-    
-    
     // inform the user
     
     NSLog(@"Connection failed! Error - %@ %@",
@@ -120,6 +98,7 @@
     
     for (id key in jsonDict) {
         NSLog(@"key: %@, value: %@", key, [jsonDict objectForKey:key]);
+        NSLog(@"The value of bases by itself is: %@", [jsonDict objectForKey:@"bases"]);
     }
     
     if (!jsonArray) {
@@ -128,15 +107,10 @@
         //NSLog(@"The jsonArray is: %@", jsonArray);
         for(NSDictionary *item in jsonArray) {
             NSLog(@"Item: %@", item);
-            NSLog(@"The bases are: %@", [item objectForKey:@"bases"]);
         }
         
         
     }
-    
-    //[connection release];
-    
-    //[receivedData release];
     
 }
 
