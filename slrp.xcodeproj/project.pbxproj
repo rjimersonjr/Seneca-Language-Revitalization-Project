@@ -1,0 +1,323 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		126E749017B1C6BC00B80E3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126E748F17B1C6BC00B80E3B /* UIKit.framework */; };
+		126E749217B1C6BC00B80E3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126E749117B1C6BC00B80E3B /* Foundation.framework */; };
+		126E749417B1C6BC00B80E3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126E749317B1C6BC00B80E3B /* CoreGraphics.framework */; };
+		126E749A17B1C6BC00B80E3B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 126E749817B1C6BC00B80E3B /* InfoPlist.strings */; };
+		126E749C17B1C6BC00B80E3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E749B17B1C6BC00B80E3B /* main.m */; };
+		126E74A017B1C6BC00B80E3B /* slrpAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E749F17B1C6BC00B80E3B /* slrpAppDelegate.m */; };
+		126E74A217B1C6BC00B80E3B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 126E74A117B1C6BC00B80E3B /* Default.png */; };
+		126E74A417B1C6BC00B80E3B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 126E74A317B1C6BC00B80E3B /* Default@2x.png */; };
+		126E74A617B1C6BC00B80E3B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 126E74A517B1C6BC00B80E3B /* Default-568h@2x.png */; };
+		126E74A917B1C6BC00B80E3B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126E74A717B1C6BC00B80E3B /* MainStoryboard.storyboard */; };
+		126E74AC17B1C6BD00B80E3B /* slrpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E74AB17B1C6BD00B80E3B /* slrpViewController.m */; };
+		126E74B717B1CEAD00B80E3B /* senecaWord.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E74B617B1CEAD00B80E3B /* senecaWord.m */; };
+		12FA63AF17B9A81700581677 /* JSONutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA63AE17B9A81700581677 /* JSONutils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		126E748C17B1C6BC00B80E3B /* slrp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = slrp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		126E748F17B1C6BC00B80E3B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		126E749117B1C6BC00B80E3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		126E749317B1C6BC00B80E3B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		126E749717B1C6BC00B80E3B /* slrp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "slrp-Info.plist"; sourceTree = "<group>"; };
+		126E749917B1C6BC00B80E3B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		126E749B17B1C6BC00B80E3B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		126E749D17B1C6BC00B80E3B /* slrp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "slrp-Prefix.pch"; sourceTree = "<group>"; };
+		126E749E17B1C6BC00B80E3B /* slrpAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = slrpAppDelegate.h; sourceTree = "<group>"; };
+		126E749F17B1C6BC00B80E3B /* slrpAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = slrpAppDelegate.m; sourceTree = "<group>"; };
+		126E74A117B1C6BC00B80E3B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		126E74A317B1C6BC00B80E3B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		126E74A517B1C6BC00B80E3B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		126E74A817B1C6BC00B80E3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		126E74AA17B1C6BD00B80E3B /* slrpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = slrpViewController.h; sourceTree = "<group>"; };
+		126E74AB17B1C6BD00B80E3B /* slrpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = slrpViewController.m; sourceTree = "<group>"; };
+		126E74B217B1CD8C00B80E3B /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		126E74B517B1CEAD00B80E3B /* senecaWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = senecaWord.h; sourceTree = "<group>"; };
+		126E74B617B1CEAD00B80E3B /* senecaWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = senecaWord.m; sourceTree = "<group>"; };
+		12FA63AD17B9A81700581677 /* JSONutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONutils.h; sourceTree = "<group>"; };
+		12FA63AE17B9A81700581677 /* JSONutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONutils.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		126E748917B1C6BC00B80E3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				126E749017B1C6BC00B80E3B /* UIKit.framework in Frameworks */,
+				126E749217B1C6BC00B80E3B /* Foundation.framework in Frameworks */,
+				126E749417B1C6BC00B80E3B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		126E748317B1C6BC00B80E3B = {
+			isa = PBXGroup;
+			children = (
+				126E749517B1C6BC00B80E3B /* slrp */,
+				126E748E17B1C6BC00B80E3B /* Frameworks */,
+				126E748D17B1C6BC00B80E3B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		126E748D17B1C6BC00B80E3B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				126E748C17B1C6BC00B80E3B /* slrp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		126E748E17B1C6BC00B80E3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				126E748F17B1C6BC00B80E3B /* UIKit.framework */,
+				126E749117B1C6BC00B80E3B /* Foundation.framework */,
+				126E749317B1C6BC00B80E3B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		126E749517B1C6BC00B80E3B /* slrp */ = {
+			isa = PBXGroup;
+			children = (
+				126E749F17B1C6BC00B80E3B /* slrpAppDelegate.m */,
+				126E749E17B1C6BC00B80E3B /* slrpAppDelegate.h */,
+				126E74B517B1CEAD00B80E3B /* senecaWord.h */,
+				126E74B617B1CEAD00B80E3B /* senecaWord.m */,
+				126E74A717B1C6BC00B80E3B /* MainStoryboard.storyboard */,
+				126E74AA17B1C6BD00B80E3B /* slrpViewController.h */,
+				126E74AB17B1C6BD00B80E3B /* slrpViewController.m */,
+				126E749617B1C6BC00B80E3B /* Supporting Files */,
+				126E74B217B1CD8C00B80E3B /* Header.h */,
+				12FA63AD17B9A81700581677 /* JSONutils.h */,
+				12FA63AE17B9A81700581677 /* JSONutils.m */,
+			);
+			path = slrp;
+			sourceTree = "<group>";
+		};
+		126E749617B1C6BC00B80E3B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				126E749717B1C6BC00B80E3B /* slrp-Info.plist */,
+				126E749817B1C6BC00B80E3B /* InfoPlist.strings */,
+				126E749B17B1C6BC00B80E3B /* main.m */,
+				126E749D17B1C6BC00B80E3B /* slrp-Prefix.pch */,
+				126E74A117B1C6BC00B80E3B /* Default.png */,
+				126E74A317B1C6BC00B80E3B /* Default@2x.png */,
+				126E74A517B1C6BC00B80E3B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		126E748B17B1C6BC00B80E3B /* slrp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 126E74AF17B1C6BD00B80E3B /* Build configuration list for PBXNativeTarget "slrp" */;
+			buildPhases = (
+				126E748817B1C6BC00B80E3B /* Sources */,
+				126E748917B1C6BC00B80E3B /* Frameworks */,
+				126E748A17B1C6BC00B80E3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = slrp;
+			productName = slrp;
+			productReference = 126E748C17B1C6BC00B80E3B /* slrp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		126E748417B1C6BC00B80E3B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = slrp;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Robert Jimerson Jr";
+			};
+			buildConfigurationList = 126E748717B1C6BC00B80E3B /* Build configuration list for PBXProject "slrp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 126E748317B1C6BC00B80E3B;
+			productRefGroup = 126E748D17B1C6BC00B80E3B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				126E748B17B1C6BC00B80E3B /* slrp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		126E748A17B1C6BC00B80E3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				126E749A17B1C6BC00B80E3B /* InfoPlist.strings in Resources */,
+				126E74A217B1C6BC00B80E3B /* Default.png in Resources */,
+				126E74A417B1C6BC00B80E3B /* Default@2x.png in Resources */,
+				126E74A617B1C6BC00B80E3B /* Default-568h@2x.png in Resources */,
+				126E74A917B1C6BC00B80E3B /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		126E748817B1C6BC00B80E3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				126E749C17B1C6BC00B80E3B /* main.m in Sources */,
+				126E74A017B1C6BC00B80E3B /* slrpAppDelegate.m in Sources */,
+				126E74AC17B1C6BD00B80E3B /* slrpViewController.m in Sources */,
+				126E74B717B1CEAD00B80E3B /* senecaWord.m in Sources */,
+				12FA63AF17B9A81700581677 /* JSONutils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		126E749817B1C6BC00B80E3B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				126E749917B1C6BC00B80E3B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		126E74A717B1C6BC00B80E3B /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				126E74A817B1C6BC00B80E3B /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		126E74AD17B1C6BD00B80E3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		126E74AE17B1C6BD00B80E3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		126E74B017B1C6BD00B80E3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "slrp/slrp-Prefix.pch";
+				INFOPLIST_FILE = "slrp/slrp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		126E74B117B1C6BD00B80E3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "slrp/slrp-Prefix.pch";
+				INFOPLIST_FILE = "slrp/slrp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		126E748717B1C6BC00B80E3B /* Build configuration list for PBXProject "slrp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				126E74AD17B1C6BD00B80E3B /* Debug */,
+				126E74AE17B1C6BD00B80E3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		126E74AF17B1C6BD00B80E3B /* Build configuration list for PBXNativeTarget "slrp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				126E74B017B1C6BD00B80E3B /* Debug */,
+				126E74B117B1C6BD00B80E3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 126E748417B1C6BC00B80E3B /* Project object */;
+}

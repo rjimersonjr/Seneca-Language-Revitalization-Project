@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Slrp View Controller-->
+        <scene sceneID="4">
+            <objects>
+                <viewController id="2" customClass="slrpViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5">
+                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="English to Seneca Dictionary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcQ-dq-eOq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="243" id="HwV-UK-L4D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="English Input" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-qr-lps">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="Zh7-yz-F3Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrj-AI-wmA">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="lJW-Aj-p7J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="2" eventType="touchUpInside" id="ql3-gL-h23"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IS9-9f-6uy">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="QZH-mP-SRe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetButtonPressed:" destination="2" eventType="touchUpInside" id="fXd-QX-Ovj"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tnD-U7-cYE">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="312" id="20E-zA-bCD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dismissKeyboard" destination="2" eventType="editingDidEndOnExit" id="fcJ-u1-Ehl"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qWX-qr-lps" firstAttribute="leading" secondItem="XcQ-dq-eOq" secondAttribute="leading" type="default" id="1Wt-o4-VNO"/>
+                            <constraint firstItem="tnD-U7-cYE" firstAttribute="leading" secondItem="Qrj-AI-wmA" secondAttribute="leading" type="default" id="6ii-87-Vu6"/>
+                            <constraint firstItem="IS9-9f-6uy" firstAttribute="baseline" secondItem="Qrj-AI-wmA" secondAttribute="baseline" type="default" id="7qW-xO-fBu"/>
+                            <constraint firstItem="XcQ-dq-eOq" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="218" id="AjQ-AR-8mw"/>
+                            <constraint firstItem="IS9-9f-6uy" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="333" id="J6X-ks-vsA"/>
+                            <constraint firstItem="qWX-qr-lps" firstAttribute="top" secondItem="5" secondAttribute="top" constant="288" id="QfE-fW-IVB"/>
+                            <constraint firstItem="Qrj-AI-wmA" firstAttribute="top" secondItem="5" secondAttribute="top" constant="424" id="QxL-Wo-WWO"/>
+                            <constraint firstItem="tnD-U7-cYE" firstAttribute="top" secondItem="5" secondAttribute="top" constant="345" id="nRz-ow-5ah"/>
+                            <constraint firstItem="XcQ-dq-eOq" firstAttribute="top" secondItem="5" secondAttribute="top" constant="253" id="uNW-gf-ZAV"/>
+                            <constraint firstItem="tnD-U7-cYE" firstAttribute="leading" secondItem="qWX-qr-lps" secondAttribute="leading" type="default" id="ydL-nu-ar3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="eWordEntered" destination="tnD-U7-cYE" id="fCZ-L8-6mX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20" y="-711"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>
