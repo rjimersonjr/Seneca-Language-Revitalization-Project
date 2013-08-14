@@ -19,7 +19,7 @@
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
 
     if (urlConnection) {
-        NSMutableData *jsonReceivedData;
+        //NSMutableData *jsonReceivedData;
         // Create the NSMutableData that will hold
         // the received data
         // receivedData is declared as a method instance elsewhere
@@ -92,26 +92,29 @@
                                                              options:kNilOptions
                                                                error:&error];
     //NSLog(@"JSON: %@", jsonDict);
-    NSString *bases = [jsonDict objectForKey:@"bases"];
-    NSString *ids = [jsonDict objectForKey:@"ids"];
+    //NSString *bases = [jsonDict objectForKey:@"bases"];
+    //NSString *ids = [jsonDict objectForKey:@"ids"];
     //NSLog(@"The bases returned is: %@ and the ids are: %@", bases, ids);
     
-    for (id key in jsonDict) {
+    for (id key in jsonDict)
+    {
         NSLog(@"key: %@, value: %@", key, [jsonDict objectForKey:key]);
         NSLog(@"The value of bases by itself is: %@", [jsonDict objectForKey:@"bases"]);
     }
     
-    if (!jsonArray) {
+    if (!jsonArray)
+    {
         NSLog(@"Error parsing JSON: %@", e);
-    } else {
-        //NSLog(@"The jsonArray is: %@", jsonArray);
-        for(NSDictionary *item in jsonArray) {
-            NSLog(@"Item: %@", item);
-        }
-        
-        
     }
+    else
+    {
+        //NSLog(@"The jsonArray is: %@", jsonArray);
+        for(NSDictionary *item in jsonArray)
+        {
+            NSLog(@"Item: %@", item);
+        }//for(NSDict..)
+    }//else
     
-}
+}//(void)connectionDidFinishLoading
 
 @end

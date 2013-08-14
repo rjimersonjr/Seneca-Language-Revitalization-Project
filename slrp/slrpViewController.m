@@ -13,6 +13,7 @@
 
 @end
 
+
 @implementation slrpViewController
 
 @synthesize eWord;
@@ -22,6 +23,34 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     eWord = [[senecaWord alloc] init];
+    
+    //Creating the when label that will be show after the word is successfully entered
+    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 353, 200, 50)];
+    self.nameLabel.textAlignment = NSTextAlignmentCenter;
+    self.nameLabel.text = @"When?";
+    [self.view addSubview:self.nameLabel];
+    self.nameLabel.hidden = YES;
+    
+    //Create the UIPickerView
+    dataArray = [[NSMutableArray alloc] init];
+    
+    // Add some data for demo purposes.
+    [dataArray addObject:@"One"];
+    [dataArray addObject:@"Two"];
+    [dataArray addObject:@"Three"];
+    [dataArray addObject:@"Four"];
+    [dataArray addObject:@"Five"];
+    
+    self.whenPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(315, 300, 225, 100)];
+    [self.whenPicker setDataSource: self];
+    [self.whenPicker setDelegate: self];
+    
+    self.whenPicker.showsSelectionIndicator = YES;
+    [self.whenPicker selectRow:2 inComponent:0 animated:YES];
+    [self.view addSubview:self.whenPicker];
+    self.whenPicker.hidden = YES;
+    
+    
     self.eWordEntered.delegate = self;
     printf("The slrpViewController just loaded!");
 }
@@ -58,5 +87,29 @@
     NSLog(@"We are in the dismissKeyboard action!");
     [_eWordEntered resignFirstResponder];
 }
+
+
+//++++++++++++++++++++++++++++++++++++++++++PickerView Stuff++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Number of components.
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+// Total rows in our component.
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [dataArray count];
+}
+
+// Display each row's data.
+-(NSString *)whenPicker:(UIPickerView *)whenPicker titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [dataArray objectAtIndex: row];
+}
+
+// Do something with the selected row.
+-(void)whenPicker:(UIPickerView *)whenPicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    NSLog(@"You selected this: %@", [dataArray objectAtIndex: row]);
+}
+
+
 
 @end

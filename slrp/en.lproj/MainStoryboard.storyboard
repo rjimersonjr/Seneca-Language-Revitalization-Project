@@ -76,12 +76,12 @@
                             <constraint firstItem="qWX-qr-lps" firstAttribute="leading" secondItem="XcQ-dq-eOq" secondAttribute="leading" type="default" id="1Wt-o4-VNO"/>
                             <constraint firstItem="tnD-U7-cYE" firstAttribute="leading" secondItem="Qrj-AI-wmA" secondAttribute="leading" type="default" id="6ii-87-Vu6"/>
                             <constraint firstItem="IS9-9f-6uy" firstAttribute="baseline" secondItem="Qrj-AI-wmA" secondAttribute="baseline" type="default" id="7qW-xO-fBu"/>
+                            <constraint firstItem="Qrj-AI-wmA" firstAttribute="top" secondItem="5" secondAttribute="top" constant="187" id="8KV-te-gbh"/>
+                            <constraint firstItem="qWX-qr-lps" firstAttribute="top" secondItem="5" secondAttribute="top" constant="84" id="AA6-CO-cZO"/>
                             <constraint firstItem="XcQ-dq-eOq" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="218" id="AjQ-AR-8mw"/>
-                            <constraint firstItem="IS9-9f-6uy" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="333" id="J6X-ks-vsA"/>
-                            <constraint firstItem="qWX-qr-lps" firstAttribute="top" secondItem="5" secondAttribute="top" constant="288" id="QfE-fW-IVB"/>
-                            <constraint firstItem="Qrj-AI-wmA" firstAttribute="top" secondItem="5" secondAttribute="top" constant="424" id="QxL-Wo-WWO"/>
-                            <constraint firstItem="tnD-U7-cYE" firstAttribute="top" secondItem="5" secondAttribute="top" constant="345" id="nRz-ow-5ah"/>
-                            <constraint firstItem="XcQ-dq-eOq" firstAttribute="top" secondItem="5" secondAttribute="top" constant="253" id="uNW-gf-ZAV"/>
+                            <constraint firstItem="tnD-U7-cYE" firstAttribute="top" secondItem="5" secondAttribute="top" constant="125" id="HQO-IV-ygf"/>
+                            <constraint firstItem="XcQ-dq-eOq" firstAttribute="top" secondItem="5" secondAttribute="top" constant="48" id="VPK-hC-nfW"/>
+                            <constraint firstItem="IS9-9f-6uy" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" type="default" id="iQR-zJ-Rbu"/>
                             <constraint firstItem="tnD-U7-cYE" firstAttribute="leading" secondItem="qWX-qr-lps" secondAttribute="leading" type="default" id="ydL-nu-ar3"/>
                         </constraints>
                     </view>
@@ -108,6 +108,23 @@
             <point key="canvasLocation" x="1120" y="-699"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="dropDownMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/dropDownMenuViewController.h"/>
+        </class>
+        <class className="slrpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/slrpViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard"/>
+                <relationship kind="action" name="nextButtonPressed:"/>
+                <relationship kind="action" name="resetButtonPressed:"/>
+                <relationship kind="outlet" name="eWordEntered" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

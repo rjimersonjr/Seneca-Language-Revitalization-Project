@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "senecaWord.h"
 
-@interface slrpViewController : UIViewController<UITextFieldDelegate>{
+@interface slrpViewController : UIViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+{
     NSString *buttonHit;
+    //UILabel *lblWhen;
+    UIPickerView *whenPicker;
+    UIPickerView *whoPicker;
+    NSMutableArray *dataArray;
 }
 
 -(IBAction)dismissKeyboard;
@@ -18,7 +23,11 @@
 -(IBAction)resetButtonPressed:(id)sender;
 
 
-@property (nonatomic, retain) IBOutlet UITextField *eWordEntered;
+@property(nonatomic, retain) IBOutlet UITextField *eWordEntered;
+@property(nonatomic, strong) UILabel *nameLabel;
+@property(nonatomic, retain) UIPickerView *whenPicker;
+@property(nonatomic, retain) UIPickerView *whoPicker;
+@property (nonatomic, retain) NSMutableArray *dataArray;
 
 @property (nonatomic, strong) senecaWord *eWord;
 
