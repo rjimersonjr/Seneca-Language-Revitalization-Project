@@ -10,8 +10,12 @@
 
 @implementation JSONutils
 @synthesize responseData;
+@synthesize getMatchesDict;
+@synthesize isFinished;
 
 -(void)Get_Matches:(NSString*)englishWord{
+    
+    isFinished = FALSE;
     NSLog(@"In the Get_Matches method");
     NSString *urlGetMatchesString = [NSString stringWithFormat:@"http://senecadictionary.com/matches?e=%@", englishWord];
     NSLog(@"The urlGetMatchesString is: %@", urlGetMatchesString);
@@ -25,15 +29,21 @@
         // receivedData is declared as a method instance elsewhere
         
         receivedData =[NSMutableData data];
-        NSLog(@"We have a good connection, now what?");
+        NSLog(@"We have a good connection, now what?  Here is the data received %@", receivedData);
+        
     } else {
         // inform the user that the download could not be made
+        UIAlertView* alert;
+        alert = [[UIAlertView alloc] initWithTitle:@"Network Issues" message:@"Unable to get the data from the server" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     }
 }
+
+
 
 -(void)setReceivedData:(NSMutableData*)pReceivedData
 {
     receivedData = pReceivedData;
+    //[receivedData appendData:data];
 }
 
 -(NSMutableData *) getReceivedData{
@@ -60,7 +70,7 @@
     // Append the new data to receivedData.
     
     // receivedData is an instance variable declared elsewhere.
-    NSLog(@"We are in the didReceiveData");
+    NSLog(@"We are in the didReceiveData and appending data");
     [receivedData appendData:data];
     
 }
@@ -114,7 +124,8 @@
             NSLog(@"Item: %@", item);
         }//for(NSDict..)
     }//else
+    getMatchesDict = jsonDict;
+    
     
 }//(void)connectionDidFinishLoading
-
 @end

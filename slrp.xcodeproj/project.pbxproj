@@ -100,12 +100,12 @@
 				126E74A717B1C6BC00B80E3B /* MainStoryboard.storyboard */,
 				126E74AA17B1C6BD00B80E3B /* slrpViewController.h */,
 				126E74AB17B1C6BD00B80E3B /* slrpViewController.m */,
+				12FA63B017B9CBC600581677 /* dropDownMenuViewController.h */,
+				12FA63B117B9CBC600581677 /* dropDownMenuViewController.m */,
 				126E749617B1C6BC00B80E3B /* Supporting Files */,
 				126E74B217B1CD8C00B80E3B /* Header.h */,
 				12FA63AD17B9A81700581677 /* JSONutils.h */,
 				12FA63AE17B9A81700581677 /* JSONutils.m */,
-				12FA63B017B9CBC600581677 /* dropDownMenuViewController.h */,
-				12FA63B117B9CBC600581677 /* dropDownMenuViewController.m */,
 			);
 			path = slrp;
 			sourceTree = "<group>";

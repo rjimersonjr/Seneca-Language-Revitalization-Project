@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "senecaWord.h"
+#import "dropDownMenuViewController.h"
 
 @interface slrpViewController : UIViewController<UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 {
@@ -29,7 +30,7 @@
 @property(nonatomic, retain) UIPickerView *whoPicker;
 @property (nonatomic, retain) NSMutableArray *dataArray;
 
-@property (nonatomic, strong) senecaWord *eWord;
+@property (nonatomic, strong) senecaWord *seneca_word;
 
 
 @end

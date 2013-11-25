@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "senecaWord.h"
 
 @interface dropDownMenuViewController : UIViewController
+
+@property (nonatomic, strong) senecaWord *seneca_word;
 
 @end

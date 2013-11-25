@@ -14,6 +14,8 @@
 
 @implementation dropDownMenuViewController
 
+@synthesize seneca_word;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSLog(@"We are in the drop down menus! %@", seneca_word.english_input);
 }
 
 - (void)didReceiveMemoryWarning

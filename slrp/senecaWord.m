@@ -10,6 +10,17 @@
 
 @implementation senecaWord
 
-@synthesize eWord;
+@synthesize english_input;
+@synthesize ids;
+@synthesize base_props;
+@synthesize see_also;
+
+@synthesize pronominal_prefix;
+@synthesize modal;
+@synthesize base;
+
+@synthesize seneca;
+@synthesize english_output;
+@synthesize sound;
 
 @end

@@ -10,6 +10,18 @@
 
 @interface senecaWord : NSObject
 
-@property(nonatomic, strong) NSString *eWord;
+@property(nonatomic, strong) NSString *english_input;
+@property(nonatomic, strong) NSString *ids;
+@property(nonatomic, strong) NSString *base_props;
+@property(nonatomic, strong) NSString *see_also;
+
+@property(nonatomic, strong) NSString *pronominal_prefix;
+@property(nonatomic, strong) NSString *modal;
+@property(nonatomic, strong) NSString *base;
+
+@property(nonatomic, strong) NSString *seneca;
+@property(nonatomic, strong) NSString *english_output;
+@property(nonatomic, strong) NSString *sound;
+
 
 @end

@@ -16,13 +16,13 @@
 
 @implementation slrpViewController
 
-@synthesize eWord;
+@synthesize seneca_word, whenPicker, whoPicker, dataArray;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    eWord = [[senecaWord alloc] init];
+    seneca_word = [[senecaWord alloc] init];
     
     //Creating the when label that will be show after the word is successfully entered
     self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 353, 200, 50)];
@@ -73,8 +73,17 @@
     else{
         JSONutils *jsonS = [[JSONutils alloc] init];
         NSLog(@"English Word entered is: %@", englishWordEntered );
+        self.seneca_word.english_input = englishWordEntered;
+        
+        NSLog(@"Entered into seneca_word object: %@", seneca_word.english_input);
+        
         [jsonS Get_Matches:englishWordEntered];
+
+        //NSDictionary *getMatchesDict = jsonS.getMatchesDict;
+        NSLog(@"The getGetMatchesDict is: %@", jsonS.getMatchesDict);
+        
         //Function to grab the JSON word.
+        //Move to next segue
     
     }
 }
@@ -108,6 +117,19 @@
 // Do something with the selected row.
 -(void)whenPicker:(UIPickerView *)whenPicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"You selected this: %@", [dataArray objectAtIndex: row]);
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    //NSLog(@"The segue identifier is: %@", [segue identifier]);
+    //if ([[segue identifier] isEqualToString:@"YOUR_SEGUE_NAME_HERE"])
+    
+    //Creating an object for the next VC so we can send the seneca_word object to it
+    dropDownMenuViewController *nextViewController = [segue destinationViewController];
+    
+    //Passing the seneca_word object to the next VC
+    nextViewController.seneca_word = self.seneca_word;
+    
 }
 
 
