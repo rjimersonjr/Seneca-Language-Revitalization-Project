@@ -42,7 +42,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonPressed:" destination="2" eventType="touchUpInside" id="7qa-KQ-C8x"/>
-                                    <segue destination="4RW-3V-GkE" kind="push" id="Y4W-S8-g2v"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsr-PM-tue">
@@ -89,11 +88,12 @@
                     <navigationItem key="navigationItem" id="pF5-SY-Xsf"/>
                     <connections>
                         <outlet property="eWordEntered" destination="fp2-YX-Nky" id="cln-Qu-OWD"/>
+                        <segue destination="4RW-3V-GkE" kind="push" identifier="segue_drop_downVC" id="38A-vD-bZ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="-731"/>
+            <point key="canvasLocation" x="1098" y="-827"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="J5D-ob-Om5">
@@ -122,19 +122,11 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="English to Seneca Dictionary" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlT-sh-QfW">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="When" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlT-sh-QfW">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="243" id="doR-ET-8Ow"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="English Input" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wS8-94-2y6">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="111" id="iez-3l-HlW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -185,18 +177,16 @@
                             <constraint firstItem="hlT-sh-QfW" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="231" id="MFb-Zm-FNk"/>
                             <constraint firstItem="lF0-tI-94v" firstAttribute="centerX" secondItem="hvt-y3-8bG" secondAttribute="centerX" type="default" id="MhN-81-ewU"/>
                             <constraint firstItem="lF0-tI-94v" firstAttribute="baseline" secondItem="ukh-RX-rQW" secondAttribute="baseline" type="default" id="Pra-Pe-ZWi"/>
+                            <constraint firstItem="hvt-y3-8bG" firstAttribute="leading" secondItem="hlT-sh-QfW" secondAttribute="leading" type="default" id="UnF-fv-fSl"/>
+                            <constraint firstItem="hvt-y3-8bG" firstAttribute="top" secondItem="hlT-sh-QfW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bYZ-SC-FFf"/>
                             <constraint firstItem="hlT-sh-QfW" firstAttribute="leading" secondItem="DB1-im-8MD" secondAttribute="leading" constant="218" id="c5E-bq-7DM"/>
-                            <constraint firstItem="wS8-94-2y6" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="277" id="fhg-81-aIN"/>
-                            <constraint firstItem="wS8-94-2y6" firstAttribute="leading" secondItem="hlT-sh-QfW" secondAttribute="leading" type="default" id="jmi-Ye-rXZ"/>
-                            <constraint firstItem="hvt-y3-8bG" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="332" id="ljE-60-QKx"/>
-                            <constraint firstItem="wS8-94-2y6" firstAttribute="leading" secondItem="hvt-y3-8bG" secondAttribute="leading" type="default" id="zIp-Pr-Fhx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cPX-cG-3e3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFI-IY-yJ7" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1082" y="517"/>
+            <point key="canvasLocation" x="1114" y="569"/>
         </scene>
     </scenes>
     <classes>

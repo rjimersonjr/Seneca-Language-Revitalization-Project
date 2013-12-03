@@ -17,6 +17,7 @@
     UIPickerView *whenPicker;
     UIPickerView *whoPicker;
     NSMutableArray *dataArray;
+    NSMutableData *receivedData;
 }
 
 -(IBAction)dismissKeyboard;
@@ -31,6 +32,15 @@
 @property (nonatomic, retain) NSMutableArray *dataArray;
 
 @property (nonatomic, strong) senecaWord *seneca_word;
+-(void)Get_Matches:(NSString*)englishWord;
+//-(NSDictionary *)Go_Between_Method:(NSDictionary *)returnedMatchesDict;
 
+@property (retain, nonatomic) NSMutableData *responseData;
+@property (retain, nonatomic) NSDictionary *getMatchesDict;
+@property (nonatomic) BOOL *isFinished;
+
+-(void)setReceivedData:(NSMutableData*)pReceivedData;
+
+-(NSMutableData *) getReceivedData;
 
 @end
