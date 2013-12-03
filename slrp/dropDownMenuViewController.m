@@ -42,6 +42,12 @@
     [array_when_choices addObject:@"-Select-"];
     [array_when_choices addObject:@"did it"];
     [array_when_choices addObject:@"will do it"];
+    [array_when_choices addObject:@"might do it"];
+    [array_when_choices addObject:@"does it"];
+    [array_when_choices addObject:@"will do it"];
+    [array_when_choices addObject:@"is doing it"];
+    [array_when_choices addObject:@"has done it"];
+    [array_when_choices addObject:@"do it!"];
 }
 
 - (void)didReceiveMemoryWarning
