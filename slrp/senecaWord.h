@@ -22,6 +22,7 @@
 @property(nonatomic, strong) NSString *seneca;
 @property(nonatomic, strong) NSString *english_output;
 @property(nonatomic, strong) NSString *sound;
+@property(nonatomic, strong) NSString *when;
 
 
 @end

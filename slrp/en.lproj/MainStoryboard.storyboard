@@ -67,6 +67,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="dismissKeyboard" destination="2" eventType="touchUpOutside" id="wEg-Lq-DkQ"/>
                                     <outlet property="delegate" destination="xnA-Ap-IJF" id="FTK-uc-F44"/>
                                 </connections>
                             </textField>
@@ -122,14 +123,6 @@
                         <rect key="frame" x="0.0" y="64" width="768" height="960"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="When" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlT-sh-QfW">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="243" id="doR-ET-8Ow"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukh-RX-rQW">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="43A-0g-w9t"/>
@@ -159,34 +152,61 @@
                                     <action selector="resetButtonPressed:" destination="4RW-3V-GkE" eventType="touchUpInside" id="Ob8-NB-lM3"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvt-y3-8bG">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-lm-XFb" userLabel="lblEnglish_input">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="312" id="29I-ta-8Pp"/>
+                                    <constraint firstAttribute="width" constant="145" id="Rdv-Pq-Ay8"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="dismissKeyboard" destination="4RW-3V-GkE" eventType="editingDidEndOnExit" id="tMQ-c1-WIs"/>
-                                </connections>
-                            </textField>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Emm-vE-r3W">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="384" id="S4t-o3-jFr"/>
+                                </constraints>
+                            </pickerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="When:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVH-94-a0J">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53" id="ocE-UA-wov"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="English Input:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58C-Jh-VTD">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="xi0-do-9rk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ukh-RX-rQW" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="413" id="1IS-86-UGm"/>
-                            <constraint firstItem="hvt-y3-8bG" firstAttribute="leading" secondItem="ukh-RX-rQW" secondAttribute="leading" type="default" id="2ij-IQ-lxD"/>
-                            <constraint firstItem="hlT-sh-QfW" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="231" id="MFb-Zm-FNk"/>
-                            <constraint firstItem="lF0-tI-94v" firstAttribute="centerX" secondItem="hvt-y3-8bG" secondAttribute="centerX" type="default" id="MhN-81-ewU"/>
+                            <constraint firstItem="58C-Jh-VTD" firstAttribute="leading" secondItem="AVH-94-a0J" secondAttribute="leading" type="default" id="3ws-jF-3Cp"/>
+                            <constraint firstItem="ukh-RX-rQW" firstAttribute="centerX" secondItem="AVH-94-a0J" secondAttribute="centerX" type="default" id="8OG-ti-6h3"/>
+                            <constraint firstItem="Emm-vE-r3W" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="404" id="8St-6O-KGd"/>
                             <constraint firstItem="lF0-tI-94v" firstAttribute="baseline" secondItem="ukh-RX-rQW" secondAttribute="baseline" type="default" id="Pra-Pe-ZWi"/>
-                            <constraint firstItem="hvt-y3-8bG" firstAttribute="leading" secondItem="hlT-sh-QfW" secondAttribute="leading" type="default" id="UnF-fv-fSl"/>
-                            <constraint firstItem="hvt-y3-8bG" firstAttribute="top" secondItem="hlT-sh-QfW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="bYZ-SC-FFf"/>
-                            <constraint firstItem="hlT-sh-QfW" firstAttribute="leading" secondItem="DB1-im-8MD" secondAttribute="leading" constant="218" id="c5E-bq-7DM"/>
+                            <constraint firstItem="AVH-94-a0J" firstAttribute="top" secondItem="58C-Jh-VTD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TOI-Dg-bSg"/>
+                            <constraint firstItem="lF0-tI-94v" firstAttribute="centerX" secondItem="DB1-im-8MD" secondAttribute="centerX" type="default" id="YVM-Qs-gA4"/>
+                            <constraint firstItem="58C-Jh-VTD" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="332" id="eYp-Qa-8Pb"/>
+                            <constraint firstItem="Xyd-lm-XFb" firstAttribute="leading" secondItem="ukh-RX-rQW" secondAttribute="leading" type="default" id="fqk-6V-Q0C"/>
+                            <constraint firstItem="AVH-94-a0J" firstAttribute="leading" secondItem="Emm-vE-r3W" secondAttribute="leading" type="default" id="kyr-eI-k8r"/>
+                            <constraint firstItem="58C-Jh-VTD" firstAttribute="top" secondItem="Xyd-lm-XFb" secondAttribute="top" type="default" id="pHJ-ww-lMc"/>
+                            <constraint firstAttribute="bottom" secondItem="ukh-RX-rQW" secondAttribute="bottom" constant="142" id="q5u-FJ-EGs"/>
+                            <constraint firstItem="58C-Jh-VTD" firstAttribute="baseline" secondItem="Xyd-lm-XFb" secondAttribute="baseline" type="default" id="vbX-nr-zHB"/>
+                            <constraint firstItem="Xyd-lm-XFb" firstAttribute="leading" secondItem="DB1-im-8MD" secondAttribute="leading" constant="218" id="yQZ-mW-sad"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cPX-cG-3e3"/>
+                    <connections>
+                        <outlet property="pickerWhen" destination="Emm-vE-r3W" id="hyf-gK-k5Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFI-IY-yJ7" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="569"/>
+            <point key="canvasLocation" x="1150" y="593"/>
         </scene>
     </scenes>
     <classes>
@@ -195,6 +215,9 @@
         </class>
         <class className="dropDownMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/dropDownMenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pickerWhen" candidateClass="UIPickerView"/>
+            </relationships>
         </class>
         <class className="slrpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/slrpViewController.h"/>

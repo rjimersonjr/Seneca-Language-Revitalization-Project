@@ -9,8 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "senecaWord.h"
 
-@interface dropDownMenuViewController : UIViewController
+@interface dropDownMenuViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>{
+    
+    IBOutlet UIPickerView *pickerWhen;
+    NSMutableArray *array_when_choices;
+    //NSString *dateStringToMove;
+    //teeTime *teTime;
+}
 
-@property (nonatomic, strong) senecaWord *seneca_word;
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+
+@property(nonatomic, strong) senecaWord *seneca_word;
+@property(nonatomic, strong) UILabel *lblEnglish_input;
+@property(nonatomic, strong) UILabel *lblEnglish;
 @end
