@@ -22,5 +22,9 @@
 @synthesize seneca;
 @synthesize english_output;
 @synthesize sound;
+@synthesize when;
+@synthesize who;
+@synthesize done_to;
+@synthesize direction;
 
 @end

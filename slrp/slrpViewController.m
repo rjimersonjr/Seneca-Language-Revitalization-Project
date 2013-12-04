@@ -26,6 +26,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     seneca_word = [[senecaWord alloc] init];
+    //Dirty way to initialize to non-null
+    seneca_word.who = @"";
+    seneca_word.done_to = @"";
+    seneca_word.direction = @"";
     
     //Creating the when label that will be show after the word is successfully entered
     self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 353, 200, 50)];
@@ -229,7 +233,10 @@
     //NSString *bases = [jsonDict objectForKey:@"bases"];
     //NSString *ids = [jsonDict objectForKey:@"ids"];
     //NSLog(@"The bases returned is: %@ and the ids are: %@", bases, ids);
-    
+    seneca_word.ids = [jsonDict objectForKey:@"ids"];
+    NSArray *array_ids = [jsonDict objectForKey:@"ids"];
+    NSString *ids = array_ids[0];
+    seneca_word.ids = ids;
     for (id key in jsonDict)
     {
         NSLog(@"key: %@, value: %@", key, [jsonDict objectForKey:key]);

@@ -32,7 +32,7 @@
 @property (nonatomic, retain) NSMutableArray *dataArray;
 
 @property (nonatomic, strong) senecaWord *seneca_word;
--(void)Get_Matches:(NSString*)englishWord;
+
 //-(NSDictionary *)Go_Between_Method:(NSDictionary *)returnedMatchesDict;
 
 @property (retain, nonatomic) NSMutableData *responseData;
@@ -40,7 +40,7 @@
 @property (nonatomic) BOOL *isFinished;
 
 -(void)setReceivedData:(NSMutableData*)pReceivedData;
-
+-(void)Get_Matches:(NSString*)englishWord;
 -(NSMutableData *) getReceivedData;
 
 @end

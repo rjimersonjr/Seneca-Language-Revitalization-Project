@@ -19,6 +19,7 @@
 		126E74A917B1C6BC00B80E3B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 126E74A717B1C6BC00B80E3B /* MainStoryboard.storyboard */; };
 		126E74AC17B1C6BD00B80E3B /* slrpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E74AB17B1C6BD00B80E3B /* slrpViewController.m */; };
 		126E74B717B1CEAD00B80E3B /* senecaWord.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E74B617B1CEAD00B80E3B /* senecaWord.m */; };
+		12B1B683184EFCB500B3D92C /* outputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12B1B682184EFCB500B3D92C /* outputViewController.m */; };
 		12FA63AF17B9A81700581677 /* JSONutils.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA63AE17B9A81700581677 /* JSONutils.m */; };
 		12FA63B217B9CBC600581677 /* dropDownMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA63B117B9CBC600581677 /* dropDownMenuViewController.m */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,8 @@
 		126E74B217B1CD8C00B80E3B /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		126E74B517B1CEAD00B80E3B /* senecaWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = senecaWord.h; sourceTree = "<group>"; };
 		126E74B617B1CEAD00B80E3B /* senecaWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = senecaWord.m; sourceTree = "<group>"; };
+		12B1B681184EFCB400B3D92C /* outputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = outputViewController.h; sourceTree = "<group>"; };
+		12B1B682184EFCB500B3D92C /* outputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = outputViewController.m; sourceTree = "<group>"; };
 		12FA63AD17B9A81700581677 /* JSONutils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONutils.h; sourceTree = "<group>"; };
 		12FA63AE17B9A81700581677 /* JSONutils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONutils.m; sourceTree = "<group>"; };
 		12FA63B017B9CBC600581677 /* dropDownMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dropDownMenuViewController.h; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 				126E74AB17B1C6BD00B80E3B /* slrpViewController.m */,
 				12FA63B017B9CBC600581677 /* dropDownMenuViewController.h */,
 				12FA63B117B9CBC600581677 /* dropDownMenuViewController.m */,
+				12B1B681184EFCB400B3D92C /* outputViewController.h */,
+				12B1B682184EFCB500B3D92C /* outputViewController.m */,
 				126E749617B1C6BC00B80E3B /* Supporting Files */,
 				126E74B217B1CD8C00B80E3B /* Header.h */,
 				12FA63AD17B9A81700581677 /* JSONutils.h */,
@@ -197,6 +202,7 @@
 				126E74B717B1CEAD00B80E3B /* senecaWord.m in Sources */,
 				12FA63AF17B9A81700581677 /* JSONutils.m in Sources */,
 				12FA63B217B9CBC600581677 /* dropDownMenuViewController.m in Sources */,
+				12B1B683184EFCB500B3D92C /* outputViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

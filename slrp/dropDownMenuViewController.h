@@ -12,10 +12,15 @@
 @interface dropDownMenuViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>{
     
     IBOutlet UIPickerView *pickerWhen;
+    IBOutlet UIPickerView *picker_who;
     NSMutableArray *array_when_choices;
-    //NSString *dateStringToMove;
-    //teeTime *teTime;
+    NSMutableArray *array_who_choices;
+    NSMutableArray *dataArray;
+    NSMutableData *receivedData;
 }
+
+-(IBAction)nextButtonPressed:(id)sender;
+-(IBAction)resetButtonPressed:(id)sender;
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
 
@@ -25,7 +30,13 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 
+-(void)setReceivedData:(NSMutableData*)pReceivedData;
+-(NSMutableData *) getReceivedData;
+-(void)Get_Output:(NSObject*)seneca_word_object;
+
 @property(nonatomic, strong) senecaWord *seneca_word;
 @property(nonatomic, strong) UILabel *lblEnglish_input;
 @property(nonatomic, strong) UILabel *lblEnglish;
+@property (retain, nonatomic) NSMutableData *responseData;
+@property (retain, nonatomic) NSDictionary *getMatchesDict;
 @end

@@ -135,6 +135,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="4RW-3V-GkE" eventType="touchUpInside" id="aey-Z1-bk4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lF0-tI-94v">
                                 <constraints>
@@ -155,6 +158,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyd-lm-XFb" userLabel="lblEnglish_input">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="145" id="Rdv-Pq-Ay8"/>
+                                    <constraint firstAttribute="height" constant="21" id="bQq-bS-Oqz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -173,44 +177,80 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="53" id="ocE-UA-wov"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="English Input:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58C-Jh-VTD">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="111" id="xi0-do-9rk"/>
+                                    <constraint firstAttribute="width" constant="130" id="PBk-vX-cno"/>
+                                    <constraint firstAttribute="height" constant="21" id="eVW-0t-jv3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4T-od-sbt">
+                                <connections>
+                                    <outlet property="dataSource" destination="4RW-3V-GkE" id="ZDB-V9-Z3g"/>
+                                    <outlet property="delegate" destination="4RW-3V-GkE" id="qpn-AT-CaU"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Who:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWJ-qI-HdU">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="FFe-Rh-qhw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="58C-Jh-VTD" firstAttribute="leading" secondItem="AVH-94-a0J" secondAttribute="leading" type="default" id="3ws-jF-3Cp"/>
-                            <constraint firstItem="ukh-RX-rQW" firstAttribute="centerX" secondItem="AVH-94-a0J" secondAttribute="centerX" type="default" id="8OG-ti-6h3"/>
-                            <constraint firstItem="Emm-vE-r3W" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="404" id="8St-6O-KGd"/>
+                            <constraint firstItem="AVH-94-a0J" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="174" id="1i4-Lp-TDo"/>
                             <constraint firstItem="lF0-tI-94v" firstAttribute="baseline" secondItem="ukh-RX-rQW" secondAttribute="baseline" type="default" id="Pra-Pe-ZWi"/>
-                            <constraint firstItem="AVH-94-a0J" firstAttribute="top" secondItem="58C-Jh-VTD" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TOI-Dg-bSg"/>
-                            <constraint firstItem="lF0-tI-94v" firstAttribute="centerX" secondItem="DB1-im-8MD" secondAttribute="centerX" type="default" id="YVM-Qs-gA4"/>
-                            <constraint firstItem="58C-Jh-VTD" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="332" id="eYp-Qa-8Pb"/>
-                            <constraint firstItem="Xyd-lm-XFb" firstAttribute="leading" secondItem="ukh-RX-rQW" secondAttribute="leading" type="default" id="fqk-6V-Q0C"/>
-                            <constraint firstItem="AVH-94-a0J" firstAttribute="leading" secondItem="Emm-vE-r3W" secondAttribute="leading" type="default" id="kyr-eI-k8r"/>
-                            <constraint firstItem="58C-Jh-VTD" firstAttribute="top" secondItem="Xyd-lm-XFb" secondAttribute="top" type="default" id="pHJ-ww-lMc"/>
-                            <constraint firstAttribute="bottom" secondItem="ukh-RX-rQW" secondAttribute="bottom" constant="142" id="q5u-FJ-EGs"/>
-                            <constraint firstItem="58C-Jh-VTD" firstAttribute="baseline" secondItem="Xyd-lm-XFb" secondAttribute="baseline" type="default" id="vbX-nr-zHB"/>
-                            <constraint firstItem="Xyd-lm-XFb" firstAttribute="leading" secondItem="DB1-im-8MD" secondAttribute="leading" constant="218" id="yQZ-mW-sad"/>
+                            <constraint firstAttribute="bottom" secondItem="p4T-od-sbt" secondAttribute="bottom" constant="250" id="QMh-l0-KS9"/>
+                            <constraint firstItem="58C-Jh-VTD" firstAttribute="leading" secondItem="AVH-94-a0J" secondAttribute="leading" type="default" id="Uch-Tz-plN"/>
+                            <constraint firstItem="Emm-vE-r3W" firstAttribute="top" secondItem="AVH-94-a0J" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Wvu-FQ-Lj9"/>
+                            <constraint firstItem="AVH-94-a0J" firstAttribute="leading" secondItem="Emm-vE-r3W" secondAttribute="leading" type="default" id="ZHa-2f-gU9"/>
+                            <constraint firstItem="p4T-od-sbt" firstAttribute="trailing" secondItem="Emm-vE-r3W" secondAttribute="trailing" type="default" id="bt2-Fn-2ir"/>
+                            <constraint firstItem="58C-Jh-VTD" firstAttribute="leading" secondItem="DB1-im-8MD" secondAttribute="leading" constant="228" id="dUa-NE-cc0"/>
+                            <constraint firstItem="58C-Jh-VTD" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="95" id="enY-r6-eee"/>
+                            <constraint firstItem="Xyd-lm-XFb" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="332" id="m9G-lL-o46"/>
+                            <constraint firstItem="tWJ-qI-HdU" firstAttribute="leading" secondItem="p4T-od-sbt" secondAttribute="leading" type="default" id="pdl-vu-7Wq"/>
+                            <constraint firstAttribute="trailing" secondItem="lF0-tI-94v" secondAttribute="trailing" constant="298" id="quM-ZZ-xow"/>
+                            <constraint firstItem="Xyd-lm-XFb" firstAttribute="leading" secondItem="DB1-im-8MD" secondAttribute="leading" constant="218" id="rai-US-JyA"/>
+                            <constraint firstItem="tWJ-qI-HdU" firstAttribute="leading" secondItem="Emm-vE-r3W" secondAttribute="leading" type="default" id="tuE-CR-T7d"/>
+                            <constraint firstItem="tWJ-qI-HdU" firstAttribute="top" secondItem="DB1-im-8MD" secondAttribute="top" constant="458" id="vRB-3a-QMA"/>
+                            <constraint firstAttribute="bottom" secondItem="ukh-RX-rQW" secondAttribute="bottom" constant="114" id="wpE-tQ-Sxi"/>
+                            <constraint firstItem="p4T-od-sbt" firstAttribute="leading" secondItem="ukh-RX-rQW" secondAttribute="leading" type="default" id="yhS-Xd-K0p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cPX-cG-3e3"/>
                     <connections>
                         <outlet property="pickerWhen" destination="Emm-vE-r3W" id="hyf-gK-k5Z"/>
+                        <outlet property="picker_who" destination="p4T-od-sbt" id="xbI-OV-gH1"/>
+                        <segue destination="xkU-iA-UOw" kind="push" identifier="segue_to_output" id="PYb-KP-vAO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DFI-IY-yJ7" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="593"/>
+            <point key="canvasLocation" x="20" y="557"/>
+        </scene>
+        <!--Output View Controller-->
+        <scene sceneID="3Y1-Q1-pD2">
+            <objects>
+                <viewController id="xkU-iA-UOw" customClass="outputViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7y8-6c-6wh" customClass="out">
+                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0qS-Ba-wXn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U9y-9f-lNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955" y="575"/>
         </scene>
     </scenes>
     <classes>
@@ -220,8 +260,14 @@
         <class className="dropDownMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/dropDownMenuViewController.h"/>
             <relationships>
+                <relationship kind="action" name="nextButtonPressed:"/>
+                <relationship kind="action" name="resetButtonPressed:"/>
                 <relationship kind="outlet" name="pickerWhen" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="picker_who" candidateClass="UIPickerView"/>
             </relationships>
+        </class>
+        <class className="outputViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/outputViewController.h"/>
         </class>
         <class className="slrpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/slrpViewController.h"/>

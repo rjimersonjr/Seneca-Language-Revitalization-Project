@@ -23,6 +23,8 @@
 @property(nonatomic, strong) NSString *english_output;
 @property(nonatomic, strong) NSString *sound;
 @property(nonatomic, strong) NSString *when;
-
+@property(nonatomic, strong) NSString *who;
+@property(nonatomic, strong) NSString *done_to;
+@property(nonatomic, strong) NSString *direction;
 
 @end
