@@ -35,6 +35,7 @@
 -(void)Get_Output:(NSObject*)seneca_word_object;
 
 @property(nonatomic, strong) senecaWord *seneca_word;
+@property(nonatomic, strong) UIActivityIndicatorView *spinner;
 @property(nonatomic, strong) UILabel *lblEnglish_input;
 @property(nonatomic, strong) UILabel *lblEnglish;
 @property (retain, nonatomic) NSMutableData *responseData;

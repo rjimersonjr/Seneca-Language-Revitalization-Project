@@ -15,6 +15,7 @@
 @implementation dropDownMenuViewController
 
 @synthesize seneca_word;
+@synthesize spinner;
 @synthesize responseData;
 @synthesize getMatchesDict;
 

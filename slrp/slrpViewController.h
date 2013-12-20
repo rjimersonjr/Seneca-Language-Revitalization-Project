@@ -26,6 +26,7 @@
 
 
 @property(nonatomic, retain) IBOutlet UITextField *eWordEntered;
+@property(nonatomic, retain) UIActivityIndicatorView *spinner;
 @property(nonatomic, strong) UILabel *nameLabel;
 @property(nonatomic, retain) UIPickerView *whenPicker;
 @property(nonatomic, retain) UIPickerView *whoPicker;

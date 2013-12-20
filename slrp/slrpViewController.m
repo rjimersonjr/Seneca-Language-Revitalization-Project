@@ -17,6 +17,7 @@
 @implementation slrpViewController
 
 @synthesize seneca_word, whenPicker, whoPicker, dataArray;
+@synthesize spinner;
 @synthesize responseData;
 @synthesize getMatchesDict;
 @synthesize isFinished;
@@ -93,7 +94,12 @@
         
         //Function to grab the JSON word.
         //Move to next segue
-    
+        //UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        self.spinner.center = CGPointMake(160, 240);
+        self.spinner.tag = 12;
+        [self.view addSubview:spinner];
+        [self.spinner startAnimating];
     }
 }
 
@@ -257,7 +263,9 @@
     }//else
     getMatchesDict = jsonDict;
     NSLog(@"In the class method slrpViewController!");
+    [spinner startAnimating];
     [self performSegueWithIdentifier:@"segue_drop_downVC" sender:self];
+    
 }//(void)connectionDidFinishLoading
 
 
