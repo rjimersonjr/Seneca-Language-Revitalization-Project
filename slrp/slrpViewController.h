@@ -41,6 +41,7 @@
 @property (nonatomic) BOOL *isFinished;
 
 -(void)setReceivedData:(NSMutableData*)pReceivedData;
+-(void)buildChoicesMenu:(NSDictionary*)choiceDict;
 -(void)Get_Matches:(NSString*)englishWord;
 -(NSMutableData *) getReceivedData;
 

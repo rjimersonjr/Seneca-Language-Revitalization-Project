@@ -96,7 +96,7 @@
         //Move to next segue
         //UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        self.spinner.center = CGPointMake(160, 240);
+        self.spinner.center = CGPointMake(300, 400);
         self.spinner.tag = 12;
         [self.view addSubview:spinner];
         [self.spinner startAnimating];
@@ -255,18 +255,38 @@
     }
     else
     {
-        //NSLog(@"The jsonArray is: %@", jsonArray);
-        for(NSDictionary *item in jsonArray)
-        {
-            NSLog(@"Item: %@", item);
-        }//for(NSDict..)
+        NSUInteger keyCount = [[jsonDict objectForKey:@"bases"] count];
+        if(keyCount > 1){
+            [self buildChoicesMenu:jsonDict];
+        }
+        else{
+            getMatchesDict = jsonDict;
+            NSLog(@"In the class method slrpViewController!");
+            [spinner stopAnimating];
+            [self performSegueWithIdentifier:@"segue_drop_downVC" sender:self];
+            NSLog(@"The size of the choices: %d", keyCount);
+            //NSLog(@"The jsonArray is: %@", jsonArray);
+            for(NSDictionary *item in jsonArray)
+            {
+                NSLog(@"Item: %@", item);
+            }//for(NSDict..)
+        }//else(keyCount > 1)
+        
     }//else
-    getMatchesDict = jsonDict;
-    NSLog(@"In the class method slrpViewController!");
-    [spinner startAnimating];
-    [self performSegueWithIdentifier:@"segue_drop_downVC" sender:self];
+    
     
 }//(void)connectionDidFinishLoading
+
+-(void)buildChoicesMenu:(NSDictionary *)choiceDict{
+    //in this method we build the choices menu
+    
+    NSLog(@"We are in the buildChoicesMenu");
+    NSLog(@"buildChoiceMenu method the jsonDict is: %@", choiceDict);
+    
+    
+    
+    [spinner stopAnimating];
+}
 
 
 @end

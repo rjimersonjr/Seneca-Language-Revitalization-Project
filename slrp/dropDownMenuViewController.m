@@ -84,6 +84,12 @@
     //http://senecadictionary.com/output?inp=sing&id=1&when=did+it&who=I&done_to=&direction=
     NSString *urlGetMatchesString = [NSString stringWithFormat:@"http://senecadictionary.com/output?inp=%@&id=%@&when=%@&who=%@&done_to=%@&direction=%@", seneca_word_object.english_input, seneca_word_object.ids, seneca_word_object.when, seneca_word_object.who, seneca_word_object.done_to, seneca_word_object.direction];
     
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinner.center = CGPointMake(300, 400);
+    self.spinner.tag = 12;
+    [self.view addSubview:spinner];
+    [self.spinner startAnimating];
+    
     NSLog(@"The urlGetMatchesString is: %@", urlGetMatchesString);
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlGetMatchesString]];
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
@@ -247,6 +253,9 @@
     }//else
     //getMatchesDict = jsonDict;
     NSLog(@"In the class method dropdownmenuVC!");
+    
+    [self.spinner stopAnimating];
+    
     [self performSegueWithIdentifier:@"segue_to_output" sender:self];
 }//(void)connectionDidFinishLoading
 
