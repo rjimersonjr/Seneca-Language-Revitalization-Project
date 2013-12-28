@@ -18,6 +18,8 @@
 @synthesize spinner;
 @synthesize responseData;
 @synthesize getMatchesDict;
+@synthesize lblEnglish_input;
+@synthesize lblEnglish;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -16,20 +16,30 @@
     //UILabel *lblWhen;
     UIPickerView *whenPicker;
     UIPickerView *whoPicker;
+    //IBOutlet UIPickerView *picker_choice;
+    
     NSMutableArray *dataArray;
     NSMutableData *receivedData;
 }
 
--(IBAction)dismissKeyboard;
+-(IBAction)dismissKeyboard:(id)sender;
 -(IBAction)nextButtonPressed:(id)sender;
 -(IBAction)resetButtonPressed:(id)sender;
 
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component;
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component;
 
 @property(nonatomic, retain) IBOutlet UITextField *eWordEntered;
 @property(nonatomic, retain) UIActivityIndicatorView *spinner;
 @property(nonatomic, strong) UILabel *nameLabel;
 @property(nonatomic, retain) UIPickerView *whenPicker;
 @property(nonatomic, retain) UIPickerView *whoPicker;
+@property(nonatomic, retain) IBOutlet UIPickerView *choicePicker;
 @property (nonatomic, retain) NSMutableArray *dataArray;
 
 @property (nonatomic, strong) senecaWord *seneca_word;

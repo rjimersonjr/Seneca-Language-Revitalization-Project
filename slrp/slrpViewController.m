@@ -21,6 +21,7 @@
 @synthesize responseData;
 @synthesize getMatchesDict;
 @synthesize isFinished;
+@synthesize choicePicker;
 
 - (void)viewDidLoad
 {
@@ -33,33 +34,38 @@
     seneca_word.direction = @"";
     
     //Creating the when label that will be show after the word is successfully entered
-    self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 353, 200, 50)];
-    self.nameLabel.textAlignment = NSTextAlignmentCenter;
-    self.nameLabel.text = @"When?";
-    [self.view addSubview:self.nameLabel];
-    self.nameLabel.hidden = YES;
+    //self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 353, 200, 50)];
+    //self.nameLabel.textAlignment = NSTextAlignmentCenter;
+    //self.nameLabel.text = @"When?";
+    //[self.view addSubview:self.nameLabel];
+    //self.nameLabel.hidden = YES;
     
+    //[self.view addSubview:self.choicePicker];
+    
+    //self.choicePicker.delegate = self;
+    //[self.choicePicker setHidden:NO];
+    //self.choicePicker.hidden = NO;
     //Create the UIPickerView
     dataArray = [[NSMutableArray alloc] init];
     
     // Add some data for demo purposes.
-    [dataArray addObject:@"One"];
-    [dataArray addObject:@"Two"];
-    [dataArray addObject:@"Three"];
-    [dataArray addObject:@"Four"];
-    [dataArray addObject:@"Five"];
+    //[dataArray addObject:@"One"];
+    //[dataArray addObject:@"Two"];
+    //[dataArray addObject:@"Three"];
+    //[dataArray addObject:@"Four"];
+    //[dataArray addObject:@"Five"];
     
-    self.whenPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(315, 300, 225, 100)];
-    [self.whenPicker setDataSource: self];
-    [self.whenPicker setDelegate: self];
+    //self.whenPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(315, 300, 225, 100)];
+    //[self.whenPicker setDataSource: self];
+    //[self.whenPicker setDelegate: self];
     
-    self.whenPicker.showsSelectionIndicator = YES;
-    [self.whenPicker selectRow:2 inComponent:0 animated:YES];
-    [self.view addSubview:self.whenPicker];
-    self.whenPicker.hidden = YES;
+    //self.whenPicker.showsSelectionIndicator = YES;
+    //[self.whenPicker selectRow:2 inComponent:0 animated:YES];
+    //[self.view addSubview:self.whenPicker];
+    //self.whenPicker.hidden = YES;
     
     
-    self.eWordEntered.delegate = self;
+    //self.eWordEntered.delegate = self;
     printf("The slrpViewController just loaded!");
 }
 
@@ -107,8 +113,9 @@
     NSLog(@"The reset button was hit!");
 }
 
--(IBAction)dismissKeyboard{
+-(IBAction)dismissKeyboard:(id)sender{
     NSLog(@"We are in the dismissKeyboard action!");
+    [self.view endEditing:YES]; 
     [_eWordEntered resignFirstResponder];
 }
 
@@ -125,12 +132,12 @@
 }
 
 // Display each row's data.
--(NSString *)whenPicker:(UIPickerView *)whenPicker titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+-(NSString *)choicePicker:(UIPickerView *)choicePicker titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return [dataArray objectAtIndex: row];
 }
 
 // Do something with the selected row.
--(void)whenPicker:(UIPickerView *)whenPicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+-(void)choicePicker:(UIPickerView *)choicePicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     NSLog(@"You selected this: %@", [dataArray objectAtIndex: row]);
 }
 
@@ -257,6 +264,7 @@
     {
         NSUInteger keyCount = [[jsonDict objectForKey:@"bases"] count];
         if(keyCount > 1){
+            NSLog(@"More than one key returned!");
             [self buildChoicesMenu:jsonDict];
         }
         else{
@@ -283,7 +291,18 @@
     NSLog(@"We are in the buildChoicesMenu");
     NSLog(@"buildChoiceMenu method the jsonDict is: %@", choiceDict);
     
+    [dataArray addObject:@"One"];
+    [dataArray addObject:@"Two"];
     
+    NSLog(@"The dataArray is: %@", dataArray);
+    //[self.choicePicker reloadAllComponents];
+    //[self.choicePicker reloadAllComponents];
+    [self.choicePicker selectRow:0 inComponent:0 animated:YES];
+    [self.choicePicker setHidden:NO];
+    [self.choicePicker reloadAllComponents];
+    //self.choicePicker.hidden = NO;
+    //if (self.choicePicker) self.choicePicker.hidden = !self.choicePicker.hidden;
+    //self.choicePicker.hidden = !self.choicePicker.hidden;
     
     [spinner stopAnimating];
 }

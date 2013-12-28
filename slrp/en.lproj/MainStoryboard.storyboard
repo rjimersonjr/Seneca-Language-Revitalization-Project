@@ -67,10 +67,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="dismissKeyboard" destination="2" eventType="touchUpOutside" id="wEg-Lq-DkQ"/>
-                                    <outlet property="delegate" destination="xnA-Ap-IJF" id="FTK-uc-F44"/>
+                                    <action selector="dismissKeyboard:" destination="2" eventType="touchUpOutside" id="5oK-pB-wwp"/>
+                                    <outlet property="delegate" destination="2" id="vHf-mo-yAT"/>
                                 </connections>
                             </textField>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5vP-xo-lYf">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="sev-rO-GnH"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="2" id="4xu-Ly-ayw"/>
+                                    <outlet property="delegate" destination="2" id="MKm-sT-7B5"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -78,16 +87,19 @@
                             <constraint firstItem="gjH-Hl-tQv" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="231" id="Ghs-Z1-sMg"/>
                             <constraint firstItem="jsr-PM-tue" firstAttribute="centerX" secondItem="fp2-YX-Nky" secondAttribute="centerX" type="default" id="Kqn-uO-OiR"/>
                             <constraint firstItem="H29-QP-th8" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="413" id="Uv9-i2-OVe"/>
-                            <constraint firstItem="gjH-Hl-tQv" firstAttribute="leading" secondItem="xnA-Ap-IJF" secondAttribute="leading" constant="218" id="VVx-pj-mpc"/>
                             <constraint firstItem="fp2-YX-Nky" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="332" id="YUW-Ll-K0b"/>
+                            <constraint firstItem="gjH-Hl-tQv" firstAttribute="leading" secondItem="xnA-Ap-IJF" secondAttribute="leading" constant="218" id="fpM-26-H5O"/>
+                            <constraint firstAttribute="bottom" secondItem="5vP-xo-lYf" secondAttribute="bottom" constant="185" id="jgf-Iy-V8I"/>
                             <constraint firstItem="jsr-PM-tue" firstAttribute="baseline" secondItem="H29-QP-th8" secondAttribute="baseline" type="default" id="lEH-va-LGA"/>
                             <constraint firstItem="fp2-YX-Nky" firstAttribute="leading" secondItem="H29-QP-th8" secondAttribute="leading" type="default" id="mQ5-L2-clO"/>
+                            <constraint firstItem="5vP-xo-lYf" firstAttribute="centerX" secondItem="xnA-Ap-IJF" secondAttribute="centerX" type="default" id="obv-Wz-vfe"/>
                             <constraint firstItem="PDZ-55-nAs" firstAttribute="leading" secondItem="fp2-YX-Nky" secondAttribute="leading" type="default" id="u9f-4z-jIM"/>
                             <constraint firstItem="PDZ-55-nAs" firstAttribute="leading" secondItem="gjH-Hl-tQv" secondAttribute="leading" type="default" id="y0f-cW-Rcy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pF5-SY-Xsf"/>
                     <connections>
+                        <outlet property="choicePicker" destination="5vP-xo-lYf" id="hM0-Ou-NkF"/>
                         <outlet property="eWordEntered" destination="fp2-YX-Nky" id="cln-Qu-OWD"/>
                         <segue destination="4RW-3V-GkE" kind="push" identifier="segue_drop_downVC" id="38A-vD-bZ9"/>
                     </connections>
@@ -272,9 +284,10 @@
         <class className="slrpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/slrpViewController.h"/>
             <relationships>
-                <relationship kind="action" name="dismissKeyboard"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="nextButtonPressed:"/>
                 <relationship kind="action" name="resetButtonPressed:"/>
+                <relationship kind="outlet" name="choicePicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="eWordEntered" candidateClass="UITextField"/>
             </relationships>
         </class>
