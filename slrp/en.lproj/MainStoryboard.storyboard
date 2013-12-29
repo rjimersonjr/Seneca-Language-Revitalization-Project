@@ -96,20 +96,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="kYq-7v-gVf" firstAttribute="leading" secondItem="5vP-xo-lYf" secondAttribute="leading" type="default" id="8Ll-5F-KeV"/>
-                            <constraint firstItem="PDZ-55-nAs" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="277" id="91D-6H-WMQ"/>
-                            <constraint firstItem="gjH-Hl-tQv" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="231" id="Ghs-Z1-sMg"/>
-                            <constraint firstAttribute="bottom" secondItem="5vP-xo-lYf" secondAttribute="bottom" constant="185" id="II1-fw-dON"/>
-                            <constraint firstAttribute="bottom" secondItem="kYq-7v-gVf" secondAttribute="bottom" constant="99" id="K3A-z4-KAG"/>
-                            <constraint firstItem="jsr-PM-tue" firstAttribute="centerX" secondItem="fp2-YX-Nky" secondAttribute="centerX" type="default" id="Kqn-uO-OiR"/>
-                            <constraint firstItem="H29-QP-th8" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="413" id="Uv9-i2-OVe"/>
-                            <constraint firstItem="fp2-YX-Nky" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="332" id="YUW-Ll-K0b"/>
-                            <constraint firstItem="gjH-Hl-tQv" firstAttribute="leading" secondItem="xnA-Ap-IJF" secondAttribute="leading" constant="218" id="fpM-26-H5O"/>
+                            <constraint firstAttribute="bottom" secondItem="kYq-7v-gVf" secondAttribute="bottom" constant="298" id="4V0-o4-gEx"/>
+                            <constraint firstItem="kYq-7v-gVf" firstAttribute="leading" secondItem="5vP-xo-lYf" secondAttribute="leading" type="default" id="7Za-90-qfV"/>
+                            <constraint firstItem="5vP-xo-lYf" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="359" id="7bz-El-eUr"/>
+                            <constraint firstItem="gjH-Hl-tQv" firstAttribute="leading" secondItem="fp2-YX-Nky" secondAttribute="leading" type="default" id="99g-AE-eFl"/>
+                            <constraint firstItem="fp2-YX-Nky" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="191" id="DZe-hR-ztX"/>
+                            <constraint firstItem="5vP-xo-lYf" firstAttribute="leading" secondItem="xnA-Ap-IJF" secondAttribute="leading" constant="116" id="LeA-lB-5Om"/>
+                            <constraint firstItem="gjH-Hl-tQv" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="92" id="Lfb-Qt-qe0"/>
+                            <constraint firstItem="H29-QP-th8" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="266" id="MGk-bB-Tzz"/>
+                            <constraint firstItem="PDZ-55-nAs" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="137" id="QvG-CG-QdR"/>
+                            <constraint firstItem="PDZ-55-nAs" firstAttribute="leading" secondItem="xnA-Ap-IJF" secondAttribute="leading" constant="205" id="Raz-dW-PHi"/>
+                            <constraint firstItem="5vP-xo-lYf" firstAttribute="centerX" secondItem="jsr-PM-tue" secondAttribute="centerX" type="default" id="WUU-8i-0ur"/>
+                            <constraint firstItem="H29-QP-th8" firstAttribute="leading" secondItem="fp2-YX-Nky" secondAttribute="leading" type="default" id="a7d-3B-iMO"/>
                             <constraint firstItem="jsr-PM-tue" firstAttribute="baseline" secondItem="H29-QP-th8" secondAttribute="baseline" type="default" id="lEH-va-LGA"/>
-                            <constraint firstItem="fp2-YX-Nky" firstAttribute="leading" secondItem="H29-QP-th8" secondAttribute="leading" type="default" id="mQ5-L2-clO"/>
-                            <constraint firstItem="5vP-xo-lYf" firstAttribute="centerX" secondItem="xnA-Ap-IJF" secondAttribute="centerX" type="default" id="obv-Wz-vfe"/>
-                            <constraint firstItem="PDZ-55-nAs" firstAttribute="leading" secondItem="fp2-YX-Nky" secondAttribute="leading" type="default" id="u9f-4z-jIM"/>
-                            <constraint firstItem="PDZ-55-nAs" firstAttribute="leading" secondItem="gjH-Hl-tQv" secondAttribute="leading" type="default" id="y0f-cW-Rcy"/>
+                            <constraint firstItem="jsr-PM-tue" firstAttribute="centerX" secondItem="fp2-YX-Nky" secondAttribute="centerX" type="default" id="wsc-Zl-VXp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pF5-SY-Xsf"/>
