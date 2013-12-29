@@ -122,24 +122,24 @@
 
 //++++++++++++++++++++++++++++++++++++++++++PickerView Stuff++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Number of components.
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
 }
 
-// Total rows in our component.
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
-    return [dataArray count];
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    NSLog(@"You selected this: %@", [dataArray objectAtIndex: row]);
 }
 
-// Display each row's data.
--(NSString *)choicePicker:(UIPickerView *)choicePicker titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return [dataArray count];
+
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return [dataArray objectAtIndex: row];
 }
 
-// Do something with the selected row.
--(void)choicePicker:(UIPickerView *)choicePicker didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    NSLog(@"You selected this: %@", [dataArray objectAtIndex: row]);
-}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
@@ -290,19 +290,13 @@
     
     NSLog(@"We are in the buildChoicesMenu");
     NSLog(@"buildChoiceMenu method the jsonDict is: %@", choiceDict);
-    
-    [dataArray addObject:@"One"];
-    [dataArray addObject:@"Two"];
+    NSLog(@"the bases are: %@", [choiceDict objectForKey:@"bases"]);
+    dataArray = [choiceDict valueForKey:@"bases"];
     
     NSLog(@"The dataArray is: %@", dataArray);
-    //[self.choicePicker reloadAllComponents];
-    //[self.choicePicker reloadAllComponents];
     [self.choicePicker selectRow:0 inComponent:0 animated:YES];
     [self.choicePicker setHidden:NO];
     [self.choicePicker reloadAllComponents];
-    //self.choicePicker.hidden = NO;
-    //if (self.choicePicker) self.choicePicker.hidden = !self.choicePicker.hidden;
-    //self.choicePicker.hidden = !self.choicePicker.hidden;
     
     [spinner stopAnimating];
 }
