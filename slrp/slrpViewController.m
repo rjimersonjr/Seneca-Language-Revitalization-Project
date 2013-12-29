@@ -22,6 +22,7 @@
 @synthesize getMatchesDict;
 @synthesize isFinished;
 @synthesize choicePicker;
+@synthesize nextChoiceButton;
 
 - (void)viewDidLoad
 {
@@ -128,7 +129,10 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    NSLog(@"You selected this: %@", [dataArray objectAtIndex: row]);
+    
+    NSString *englishInput = [[dataArray objectAtIndex: row] stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    self.seneca_word.english_input = englishInput;
+    NSLog(@"The class variable self.seneca_word_input is: %@", self.seneca_word.english_input);
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
@@ -294,12 +298,30 @@
     dataArray = [choiceDict valueForKey:@"bases"];
     
     NSLog(@"The dataArray is: %@", dataArray);
+    
+    NSString *firstElementOfDataArray = [dataArray[0] stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    self.seneca_word.english_input = firstElementOfDataArray;
+    NSLog(@"After we cleaned it up: %@", firstElementOfDataArray);
+    
     [self.choicePicker selectRow:0 inComponent:0 animated:YES];
     [self.choicePicker setHidden:NO];
     [self.choicePicker reloadAllComponents];
+    [self.nextChoiceButton setHidden:NO];
     
     [spinner stopAnimating];
 }
 
+-(IBAction)nextChoiceButtonPressed:(id)sender{
+    NSLog(@"We are in the nextChoiceButtonPressed and the english input is: %@", self.seneca_word.english_input);
+    //NSInteger *row = [choicePicker selectedRowInComponent:0];
+    //NSString *choiceSelected = [dataArray objectAtIndex:row];
+    //NSLog(@"the selected choice is: %@", choiceSelected);
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinner.center = CGPointMake(500, 600);
+    self.spinner.tag = 12;
+    [self.view addSubview:spinner];
+    [self.spinner startAnimating];
+    [self Get_Matches:self.seneca_word.english_input];
+}
 
 @end

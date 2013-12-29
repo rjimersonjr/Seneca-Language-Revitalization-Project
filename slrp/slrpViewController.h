@@ -24,6 +24,7 @@
 
 -(IBAction)dismissKeyboard:(id)sender;
 -(IBAction)nextButtonPressed:(id)sender;
+-(IBAction)nextChoiceButtonPressed:(id)sender;
 -(IBAction)resetButtonPressed:(id)sender;
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
@@ -41,6 +42,7 @@
 @property(nonatomic, retain) UIPickerView *whoPicker;
 @property(nonatomic, retain) IBOutlet UIPickerView *choicePicker;
 @property (nonatomic, retain) NSMutableArray *dataArray;
+@property(nonatomic, retain) IBOutlet UIButton *nextChoiceButton;
 
 @property (nonatomic, strong) senecaWord *seneca_word;
 

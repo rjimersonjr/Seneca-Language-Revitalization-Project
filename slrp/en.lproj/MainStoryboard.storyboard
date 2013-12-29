@@ -80,16 +80,31 @@
                                     <outlet property="delegate" destination="2" id="MKm-sT-7B5"/>
                                 </connections>
                             </pickerView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYq-7v-gVf">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextChoiceButtonPressed:" destination="2" eventType="touchUpInside" id="4bR-kq-KdJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="kYq-7v-gVf" firstAttribute="leading" secondItem="5vP-xo-lYf" secondAttribute="leading" type="default" id="8Ll-5F-KeV"/>
                             <constraint firstItem="PDZ-55-nAs" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="277" id="91D-6H-WMQ"/>
                             <constraint firstItem="gjH-Hl-tQv" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="231" id="Ghs-Z1-sMg"/>
+                            <constraint firstAttribute="bottom" secondItem="5vP-xo-lYf" secondAttribute="bottom" constant="185" id="II1-fw-dON"/>
+                            <constraint firstAttribute="bottom" secondItem="kYq-7v-gVf" secondAttribute="bottom" constant="99" id="K3A-z4-KAG"/>
                             <constraint firstItem="jsr-PM-tue" firstAttribute="centerX" secondItem="fp2-YX-Nky" secondAttribute="centerX" type="default" id="Kqn-uO-OiR"/>
                             <constraint firstItem="H29-QP-th8" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="413" id="Uv9-i2-OVe"/>
                             <constraint firstItem="fp2-YX-Nky" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="332" id="YUW-Ll-K0b"/>
                             <constraint firstItem="gjH-Hl-tQv" firstAttribute="leading" secondItem="xnA-Ap-IJF" secondAttribute="leading" constant="218" id="fpM-26-H5O"/>
-                            <constraint firstAttribute="bottom" secondItem="5vP-xo-lYf" secondAttribute="bottom" constant="185" id="jgf-Iy-V8I"/>
                             <constraint firstItem="jsr-PM-tue" firstAttribute="baseline" secondItem="H29-QP-th8" secondAttribute="baseline" type="default" id="lEH-va-LGA"/>
                             <constraint firstItem="fp2-YX-Nky" firstAttribute="leading" secondItem="H29-QP-th8" secondAttribute="leading" type="default" id="mQ5-L2-clO"/>
                             <constraint firstItem="5vP-xo-lYf" firstAttribute="centerX" secondItem="xnA-Ap-IJF" secondAttribute="centerX" type="default" id="obv-Wz-vfe"/>
@@ -101,6 +116,7 @@
                     <connections>
                         <outlet property="choicePicker" destination="5vP-xo-lYf" id="hM0-Ou-NkF"/>
                         <outlet property="eWordEntered" destination="fp2-YX-Nky" id="cln-Qu-OWD"/>
+                        <outlet property="nextChoiceButton" destination="kYq-7v-gVf" id="H6g-mO-6Al"/>
                         <segue destination="4RW-3V-GkE" kind="push" identifier="segue_drop_downVC" id="38A-vD-bZ9"/>
                     </connections>
                 </viewController>
@@ -286,9 +302,11 @@
             <relationships>
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="nextButtonPressed:"/>
+                <relationship kind="action" name="nextChoiceButtonPressed:"/>
                 <relationship kind="action" name="resetButtonPressed:"/>
                 <relationship kind="outlet" name="choicePicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="eWordEntered" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nextChoiceButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>
