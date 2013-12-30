@@ -24,7 +24,7 @@
 
 -(IBAction)dismissKeyboard:(id)sender;
 -(IBAction)nextButtonPressed:(id)sender;
--(IBAction)nextChoiceButtonPressed:(id)sender;
+-(IBAction)directionalButtonPressed:(id)sender;
 -(IBAction)resetButtonPressed:(id)sender;
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
@@ -40,9 +40,9 @@
 @property(nonatomic, strong) UILabel *nameLabel;
 @property(nonatomic, retain) UIPickerView *whenPicker;
 @property(nonatomic, retain) UIPickerView *whoPicker;
-@property(nonatomic, retain) IBOutlet UIPickerView *choicePicker;
+@property(nonatomic, retain) IBOutlet UIPickerView *directionalPicker;
 @property (nonatomic, retain) NSMutableArray *dataArray;
-@property(nonatomic, retain) IBOutlet UIButton *nextChoiceButton;
+@property(nonatomic, retain) IBOutlet UIButton *nextDirectionalButton;
 
 @property (nonatomic, strong) senecaWord *seneca_word;
 
@@ -50,10 +50,10 @@
 
 @property (retain, nonatomic) NSMutableData *responseData;
 @property (retain, nonatomic) NSDictionary *getMatchesDict;
-@property (nonatomic) BOOL *isFinished;
+@property (nonatomic) BOOL *directionSelected;
 
 -(void)setReceivedData:(NSMutableData*)pReceivedData;
--(void)buildChoicesMenu:(NSDictionary*)choiceDict;
+-(void)buildDirectionalMenu:(NSDictionary*)choiceDict;
 -(void)Get_Matches:(NSString*)englishWord;
 -(NSMutableData *) getReceivedData;
 

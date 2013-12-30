@@ -80,7 +80,7 @@
                                     <outlet property="delegate" destination="2" id="MKm-sT-7B5"/>
                                 </connections>
                             </pickerView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kYq-7v-gVf">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUd-zq-lAO">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,14 +90,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextChoiceButtonPressed:" destination="2" eventType="touchUpInside" id="4bR-kq-KdJ"/>
+                                    <action selector="directionalButtonPressed:" destination="2" eventType="touchUpInside" id="Npv-rz-aV3"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="kYq-7v-gVf" secondAttribute="bottom" constant="298" id="4V0-o4-gEx"/>
-                            <constraint firstItem="kYq-7v-gVf" firstAttribute="leading" secondItem="5vP-xo-lYf" secondAttribute="leading" type="default" id="7Za-90-qfV"/>
                             <constraint firstItem="5vP-xo-lYf" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="359" id="7bz-El-eUr"/>
                             <constraint firstItem="gjH-Hl-tQv" firstAttribute="leading" secondItem="fp2-YX-Nky" secondAttribute="leading" type="default" id="99g-AE-eFl"/>
                             <constraint firstItem="fp2-YX-Nky" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="191" id="DZe-hR-ztX"/>
@@ -107,16 +105,18 @@
                             <constraint firstItem="PDZ-55-nAs" firstAttribute="top" secondItem="xnA-Ap-IJF" secondAttribute="top" constant="137" id="QvG-CG-QdR"/>
                             <constraint firstItem="PDZ-55-nAs" firstAttribute="leading" secondItem="xnA-Ap-IJF" secondAttribute="leading" constant="205" id="Raz-dW-PHi"/>
                             <constraint firstItem="5vP-xo-lYf" firstAttribute="centerX" secondItem="jsr-PM-tue" secondAttribute="centerX" type="default" id="WUU-8i-0ur"/>
+                            <constraint firstItem="BUd-zq-lAO" firstAttribute="leading" secondItem="5vP-xo-lYf" secondAttribute="leading" type="default" id="Xua-ZJ-oNZ"/>
                             <constraint firstItem="H29-QP-th8" firstAttribute="leading" secondItem="fp2-YX-Nky" secondAttribute="leading" type="default" id="a7d-3B-iMO"/>
                             <constraint firstItem="jsr-PM-tue" firstAttribute="baseline" secondItem="H29-QP-th8" secondAttribute="baseline" type="default" id="lEH-va-LGA"/>
+                            <constraint firstAttribute="bottom" secondItem="BUd-zq-lAO" secondAttribute="bottom" constant="306" id="q9K-6S-UGw"/>
                             <constraint firstItem="jsr-PM-tue" firstAttribute="centerX" secondItem="fp2-YX-Nky" secondAttribute="centerX" type="default" id="wsc-Zl-VXp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pF5-SY-Xsf"/>
                     <connections>
-                        <outlet property="choicePicker" destination="5vP-xo-lYf" id="hM0-Ou-NkF"/>
+                        <outlet property="directionalPicker" destination="5vP-xo-lYf" id="wCw-k4-h4M"/>
                         <outlet property="eWordEntered" destination="fp2-YX-Nky" id="cln-Qu-OWD"/>
-                        <outlet property="nextChoiceButton" destination="kYq-7v-gVf" id="H6g-mO-6Al"/>
+                        <outlet property="nextDirectionalButton" destination="BUd-zq-lAO" id="ftm-i7-Uhe"/>
                         <segue destination="4RW-3V-GkE" kind="push" identifier="segue_drop_downVC" id="38A-vD-bZ9"/>
                     </connections>
                 </viewController>
@@ -300,13 +300,13 @@
         <class className="slrpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/slrpViewController.h"/>
             <relationships>
+                <relationship kind="action" name="directionalButtonPressed:"/>
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="nextButtonPressed:"/>
-                <relationship kind="action" name="nextChoiceButtonPressed:"/>
                 <relationship kind="action" name="resetButtonPressed:"/>
-                <relationship kind="outlet" name="choicePicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="directionalPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="eWordEntered" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="nextChoiceButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nextDirectionalButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

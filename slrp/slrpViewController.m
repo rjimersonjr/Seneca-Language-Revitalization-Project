@@ -20,9 +20,9 @@
 @synthesize spinner;
 @synthesize responseData;
 @synthesize getMatchesDict;
-@synthesize isFinished;
-@synthesize choicePicker;
-@synthesize nextChoiceButton;
+@synthesize directionSelected;
+@synthesize directionalPicker;
+@synthesize nextDirectionalButton;
 
 - (void)viewDidLoad
 {
@@ -33,7 +33,6 @@
     seneca_word.who = @"";
     seneca_word.done_to = @"";
     seneca_word.direction = @"";
-    
     //Creating the when label that will be show after the word is successfully entered
     //self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 353, 200, 50)];
     //self.nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -130,7 +129,8 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-    NSString *englishInput = [[dataArray objectAtIndex: row] stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    //NSString *englishInput = [[dataArray objectAtIndex: row] stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *englishInput = [dataArray objectAtIndex: row];
     self.seneca_word.english_input = englishInput;
     NSLog(@"The class variable self.seneca_word_input is: %@", self.seneca_word.english_input);
 }
@@ -160,7 +160,6 @@
 
 -(void)Get_Matches:(NSString*)englishWord{
     
-    isFinished = FALSE;
     NSLog(@"In the Get_Matches method");
     NSString *urlGetMatchesString = [NSString stringWithFormat:@"http://senecadictionary.com/matches?e=%@", englishWord];
     NSLog(@"The urlGetMatchesString is: %@", urlGetMatchesString);
@@ -267,11 +266,21 @@
     else
     {
         NSUInteger keyCount = [[jsonDict objectForKey:@"bases"] count];
-        if(keyCount > 1){
-            NSLog(@"More than one key returned!");
-            [self buildChoicesMenu:jsonDict];
+        NSArray *base_props = [jsonDict objectForKey:@"base_props"];
+        
+
+        if ([base_props containsObject:@"trans"] || [base_props containsObject:@"cis"]) {
+            NSLog(@"It is a cis or transloc");
+            [self buildDirectionalMenu:jsonDict];
         }
         else{
+            NSLog(@"It's a 'regular' word");
+        //}
+        //if(keyCount > 1){
+        //    NSLog(@"More than one key returned!");
+        //    [self buildDirectionalMenu:jsonDict];
+        //}
+        //else{
             getMatchesDict = jsonDict;
             NSLog(@"In the class method slrpViewController!");
             [spinner stopAnimating];
@@ -289,30 +298,41 @@
     
 }//(void)connectionDidFinishLoading
 
--(void)buildChoicesMenu:(NSDictionary *)choiceDict{
+-(void)buildDirectionalMenu:(NSDictionary *)choiceDict{
     //in this method we build the choices menu
     
-    NSLog(@"We are in the buildChoicesMenu");
-    NSLog(@"buildChoiceMenu method the jsonDict is: %@", choiceDict);
-    NSLog(@"the bases are: %@", [choiceDict objectForKey:@"bases"]);
-    dataArray = [choiceDict valueForKey:@"bases"];
+    NSLog(@"We are in the buildDirectionalMenu");
+    //NSLog(@"buildChoiceMenu method the jsonDict is: %@", choiceDict);
+    NSArray *base_props = [choiceDict objectForKey:@"base_props"];
+    NSArray *base_array = [choiceDict valueForKey:@"bases"];
+    NSString *base_word = base_array[0];
+    NSLog(@"In buildDirectionalMenu the base_word is: %@", base_word);
+    if ([base_props containsObject:@"trans"])
+    {
+        NSString *trans_phrase = [NSString stringWithFormat:@"%@ that way", base_word];
+        [dataArray addObject:trans_phrase];
+    }
+    if ([base_props containsObject:@"cis"])
+    {
+        NSString *cis_phrase = [NSString stringWithFormat:@"%@ this way", base_word];
+        [dataArray addObject:cis_phrase];
+    }
+    NSString *just_base_word = [NSString stringWithFormat:@"no direction just %@", base_word];
+    [dataArray addObject:just_base_word];
+    //NSString *firstElementOfDataArray = [dataArray[0] stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    //self.seneca_word.english_input = firstElementOfDataArray;
+    //NSLog(@"After we cleaned it up: %@", firstElementOfDataArray);
     
-    NSLog(@"The dataArray is: %@", dataArray);
-    
-    NSString *firstElementOfDataArray = [dataArray[0] stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    self.seneca_word.english_input = firstElementOfDataArray;
-    NSLog(@"After we cleaned it up: %@", firstElementOfDataArray);
-    
-    [self.choicePicker selectRow:0 inComponent:0 animated:YES];
-    [self.choicePicker setHidden:NO];
-    [self.choicePicker reloadAllComponents];
-    [self.nextChoiceButton setHidden:NO];
+    [self.directionalPicker selectRow:0 inComponent:0 animated:YES];
+    [self.nextDirectionalButton setHidden:NO];
+    [self.directionalPicker reloadAllComponents];
+    [self.directionalPicker setHidden:NO];
     
     [spinner stopAnimating];
 }
 
--(IBAction)nextChoiceButtonPressed:(id)sender{
-    NSLog(@"We are in the nextChoiceButtonPressed and the english input is: %@", self.seneca_word.english_input);
+-(IBAction)directionalButtonPressed:(id)sender{
+    NSLog(@"We are in the nextDirectionPressed and the english input is: %@", self.seneca_word.english_input);
     //NSInteger *row = [choicePicker selectedRowInComponent:0];
     //NSString *choiceSelected = [dataArray objectAtIndex:row];
     //NSLog(@"the selected choice is: %@", choiceSelected);
@@ -321,7 +341,8 @@
     self.spinner.tag = 12;
     [self.view addSubview:spinner];
     [self.spinner startAnimating];
-    [self Get_Matches:self.seneca_word.english_input];
+    [self performSegueWithIdentifier:@"segue_drop_downVC" sender:self];
+    //[self Get_Matches:self.seneca_word.english_input];
 }
 
 @end

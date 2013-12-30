@@ -38,6 +38,8 @@
     self.lblSeneca_output.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:18];
     [self.view addSubview:self.lblSeneca_output];
     
+    
+    
     self.lblEnglish_ouput = [[UILabel alloc] initWithFrame:CGRectMake(500, 80, 200, 50)];
     self.lblEnglish_ouput.text = seneca_word.english_output;
     [self.view addSubview:self.lblEnglish_ouput];

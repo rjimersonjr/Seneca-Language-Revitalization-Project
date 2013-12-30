@@ -41,6 +41,9 @@
     self.lblEnglish_input = [[UILabel alloc] initWithFrame:CGRectMake(365, 80, 200, 50)];
     self.lblEnglish_input.text = seneca_word.english_input;
     [self.view addSubview:self.lblEnglish_input];
+    
+    seneca_word.english_input = [seneca_word.english_input stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    
     NSLog(@"We are in the drop down menus! %@", seneca_word.english_input);
     
     array_when_choices = [[NSMutableArray alloc] init];
