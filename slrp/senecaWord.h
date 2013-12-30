@@ -11,6 +11,7 @@
 @interface senecaWord : NSObject
 
 @property(nonatomic, strong) NSString *english_input;
+@property(nonatomic, strong) NSString *english_word;
 @property(nonatomic, strong) NSString *ids;
 @property(nonatomic, strong) NSString *base_props;
 @property(nonatomic, strong) NSString *see_also;

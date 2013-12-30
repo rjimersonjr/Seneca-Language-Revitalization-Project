@@ -11,6 +11,7 @@
 @implementation senecaWord
 
 @synthesize english_input;
+@synthesize english_word;
 @synthesize ids;
 @synthesize base_props;
 @synthesize see_also;

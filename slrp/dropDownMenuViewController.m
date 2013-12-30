@@ -44,6 +44,20 @@
     
     seneca_word.english_input = [seneca_word.english_input stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
+    //NSRange result = [seneca_word.english_input rangeOfString:@"this"];
+    if([seneca_word.english_input rangeOfString:@"this"].location != NSNotFound){
+      seneca_word.direction = @"toward";
+        NSLog(@"It's a translocative");
+    }
+    else if([seneca_word.english_input rangeOfString:@"that"].location != NSNotFound){
+        seneca_word.direction = @"away";
+        NSLog(@"It's a cislocative");
+    }
+    else{
+        seneca_word.direction = @"";
+        NSLog(@"No direction");
+    }
+    
     NSLog(@"We are in the drop down menus! %@", seneca_word.english_input);
     
     array_when_choices = [[NSMutableArray alloc] init];

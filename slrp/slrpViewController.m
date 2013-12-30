@@ -87,9 +87,9 @@
     else{
         //JSONutils *jsonS = [[JSONutils alloc] init];
         NSLog(@"English Word entered is: %@", englishWordEntered );
-        self.seneca_word.english_input = englishWordEntered;
+        self.seneca_word.english_word = englishWordEntered;
         
-        NSLog(@"Entered into seneca_word object: %@", seneca_word.english_input);
+        NSLog(@"Entered into seneca_word object: %@", seneca_word.english_word);
         
         //[jsonS Get_Matches:englishWordEntered];
         [self Get_Matches:englishWordEntered];
