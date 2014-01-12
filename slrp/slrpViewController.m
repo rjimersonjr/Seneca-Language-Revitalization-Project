@@ -33,6 +33,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     dataArray = [[NSMutableArray alloc] init];
+    pastUrls = [[NSMutableArray alloc] init];
     [self getAutoCompleteArray];
     seneca_word = [[senecaWord alloc] init];
     //Dirty way to initialize to non-null
@@ -41,11 +42,11 @@
     seneca_word.direction = @"";
     
     //self.pastUrls = [[NSMutableArray alloc] initWithObjects:@"www.google.com", nil];
-    self.pastUrls = dataArray;
-    NSLog(@"In the viewDidLoad and pasturl is: %@", self.pastUrls);
+    //self.pastUrls = dataArray;
+    NSLog(@"In the viewDidLoad and pasturl is: %@", pastUrls);
     self.autocompleteUrls = [[NSMutableArray alloc] init];
     
-    autocompleteTableView = [[UITableView alloc] initWithFrame:CGRectMake(210, 225, 312, 120) style:UITableViewStylePlain];
+    autocompleteTableView = [[UITableView alloc] initWithFrame:CGRectMake(210, 225, 310, 120) style:UITableViewStylePlain];
     //275,210,312,120
     self.autocompleteTableView.delegate = self;
     self.autocompleteTableView.dataSource = self;
@@ -292,8 +293,9 @@
         //NSArray *english_bases = [jsonDict objectForKey:@"base_props"];
         //Have to check to see if it's the autocomplete stuff
         if([jsonDict objectForKey:@"english_bases"] != nil){
-            auto_complete_array = [jsonDict objectForKey:@"english_bases"];
-            NSLog(@"We are in the autocomplete part of the loop! %@", auto_complete_array);
+            //auto_complete_array = [jsonDict objectForKey:@"english_bases"];
+            pastUrls = [jsonDict objectForKey:@"english_bases"];
+            NSLog(@"We are in the autocomplete part of the loop! %@", pastUrls);
         }
         else if ([base_props containsObject:@"trans"] || [base_props containsObject:@"cis"]) {
             NSLog(@"It is a cis or transloc");
@@ -378,6 +380,9 @@
     NSString *urlGetAutoCompleteString = [NSString stringWithFormat:@"http://senecadictionary.com/autocomplete?e="];
     NSLog(@"The urlGetMatchesString is: %@", urlGetAutoCompleteString);
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlGetAutoCompleteString]];
+    
+    //NSData *responseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
+    
     NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
     if (urlConnection) {
