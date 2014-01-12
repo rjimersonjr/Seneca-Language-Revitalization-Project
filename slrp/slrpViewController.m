@@ -23,16 +23,35 @@
 @synthesize directionSelected;
 @synthesize directionalPicker;
 @synthesize nextDirectionalButton;
+@synthesize auto_complete_array;
+@synthesize autocompleteTableView;
+@synthesize pastUrls;
+@synthesize autocompleteUrls;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    dataArray = [[NSMutableArray alloc] init];
+    [self getAutoCompleteArray];
     seneca_word = [[senecaWord alloc] init];
     //Dirty way to initialize to non-null
     seneca_word.who = @"";
     seneca_word.done_to = @"";
     seneca_word.direction = @"";
+    
+    //self.pastUrls = [[NSMutableArray alloc] initWithObjects:@"www.google.com", nil];
+    self.pastUrls = dataArray;
+    NSLog(@"In the viewDidLoad and pasturl is: %@", self.pastUrls);
+    self.autocompleteUrls = [[NSMutableArray alloc] init];
+    
+    autocompleteTableView = [[UITableView alloc] initWithFrame:CGRectMake(210, 225, 312, 120) style:UITableViewStylePlain];
+    //275,210,312,120
+    self.autocompleteTableView.delegate = self;
+    self.autocompleteTableView.dataSource = self;
+    autocompleteTableView.scrollEnabled = YES;
+    autocompleteTableView.hidden = YES;
+    [self.view addSubview:autocompleteTableView];
     //Creating the when label that will be show after the word is successfully entered
     //self.nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(150, 353, 200, 50)];
     //self.nameLabel.textAlignment = NSTextAlignmentCenter;
@@ -46,7 +65,10 @@
     //[self.choicePicker setHidden:NO];
     //self.choicePicker.hidden = NO;
     //Create the UIPickerView
-    dataArray = [[NSMutableArray alloc] init];
+    
+    //dataArray = [[NSMutableArray alloc] init];
+    //[self getAutoCompleteArray];
+    
     
     // Add some data for demo purposes.
     //[dataArray addObject:@"One"];
@@ -267,9 +289,13 @@
     {
         NSUInteger keyCount = [[jsonDict objectForKey:@"bases"] count];
         NSArray *base_props = [jsonDict objectForKey:@"base_props"];
-        
-
-        if ([base_props containsObject:@"trans"] || [base_props containsObject:@"cis"]) {
+        //NSArray *english_bases = [jsonDict objectForKey:@"base_props"];
+        //Have to check to see if it's the autocomplete stuff
+        if([jsonDict objectForKey:@"english_bases"] != nil){
+            auto_complete_array = [jsonDict objectForKey:@"english_bases"];
+            NSLog(@"We are in the autocomplete part of the loop! %@", auto_complete_array);
+        }
+        else if ([base_props containsObject:@"trans"] || [base_props containsObject:@"cis"]) {
             NSLog(@"It is a cis or transloc");
             [self buildDirectionalMenu:jsonDict];
         }
@@ -343,6 +369,92 @@
     [self.spinner startAnimating];
     [self performSegueWithIdentifier:@"segue_drop_downVC" sender:self];
     //[self Get_Matches:self.seneca_word.english_input];
+}
+
+-(void) getAutoCompleteArray{
+    //NSArray *autoCompleteArray;
+    
+    NSLog(@"In the getAutoComplete Array method");
+    NSString *urlGetAutoCompleteString = [NSString stringWithFormat:@"http://senecadictionary.com/autocomplete?e="];
+    NSLog(@"The urlGetMatchesString is: %@", urlGetAutoCompleteString);
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlGetAutoCompleteString]];
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
+    
+    if (urlConnection) {
+        //NSMutableData *jsonReceivedData;
+        // Create the NSMutableData that will hold
+        // the received data
+        // receivedData is declared as a method instance elsewhere
+        
+        receivedData =[NSMutableData data];
+        NSLog(@"We have a good connection, now what?  Here is the data received %@", receivedData);
+        
+    } else {
+        // inform the user that the download could not be made
+        UIAlertView* alert;
+        alert = [[UIAlertView alloc] initWithTitle:@"Network Issues" message:@"Unable to get the data from the server" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    }
+
+
+    
+    //return autoCompleteArray;
+}
+
+- (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
+    
+    // Put anything that starts with this substring into the autocompleteUrls array
+    // The items in this array is what will show up in the table view
+    [autocompleteUrls removeAllObjects];
+    for(NSString *curString in pastUrls) {
+        NSRange substringRange = [curString rangeOfString:substring];
+        if (substringRange.location == 0) {
+            [autocompleteUrls addObject:curString];
+        }
+    }
+    [autocompleteTableView reloadData];
+}
+
+#pragma mark UITextFieldDelegate methods
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    autocompleteTableView.hidden = NO;
+    
+    NSString *substring = [NSString stringWithString:textField.text];
+    substring = [substring stringByReplacingCharactersInRange:range withString:string];
+    [self searchAutocompleteEntriesWithSubstring:substring];
+    return YES;
+}
+
+#pragma mark UITableViewDataSource methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger) section {
+    return autocompleteUrls.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = nil;
+    static NSString *AutoCompleteRowIdentifier = @"AutoCompleteRowIdentifier";
+    cell = [tableView dequeueReusableCellWithIdentifier:AutoCompleteRowIdentifier];
+    //if (cell == nil) {
+    //    cell = [[[UITableViewCell alloc]
+    //             initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AutoCompleteRowIdentifier] autorelease];
+    //}
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:AutoCompleteRowIdentifier];
+    }
+    
+    cell.textLabel.text = [autocompleteUrls objectAtIndex:indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    self.eWordEntered.text = selectedCell.textLabel.text;
+    
+    //[self goPressed];
+    
 }
 
 @end

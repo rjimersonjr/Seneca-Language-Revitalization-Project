@@ -17,9 +17,12 @@
     UIPickerView *whenPicker;
     UIPickerView *whoPicker;
     //IBOutlet UIPickerView *picker_choice;
-    
     NSMutableArray *dataArray;
     NSMutableData *receivedData;
+    
+    NSMutableArray *pastUrls;
+    NSMutableArray *autocompleteUrls;
+    UITableView *autocompleteTableView;
 }
 
 -(IBAction)dismissKeyboard:(id)sender;
@@ -45,16 +48,22 @@
 @property(nonatomic, retain) IBOutlet UIButton *nextDirectionalButton;
 
 @property (nonatomic, strong) senecaWord *seneca_word;
+@property (nonatomic, strong) NSArray *auto_complete_array;
+@property (nonatomic, retain) NSMutableArray *pastUrls;
+@property (nonatomic, retain) NSMutableArray *autocompleteUrls;
 
 //-(NSDictionary *)Go_Between_Method:(NSDictionary *)returnedMatchesDict;
 
 @property (retain, nonatomic) NSMutableData *responseData;
 @property (retain, nonatomic) NSDictionary *getMatchesDict;
 @property (nonatomic) BOOL *directionSelected;
+@property (nonatomic, retain) UITableView *autocompleteTableView;
 
 -(void)setReceivedData:(NSMutableData*)pReceivedData;
 -(void)buildDirectionalMenu:(NSDictionary*)choiceDict;
 -(void)Get_Matches:(NSString*)englishWord;
 -(NSMutableData *) getReceivedData;
+-(void) getAutoCompleteArray;
+- (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring;
 
 @end
