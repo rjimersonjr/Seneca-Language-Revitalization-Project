@@ -34,6 +34,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     dataArray = [[NSMutableArray alloc] init];
     pastUrls = [[NSMutableArray alloc] init];
+    
     [self getAutoCompleteArray];
     seneca_word = [[senecaWord alloc] init];
     //Dirty way to initialize to non-null
@@ -49,6 +50,7 @@
     autocompleteTableView = [[UITableView alloc] initWithFrame:CGRectMake(210, 225, 310, 120) style:UITableViewStylePlain];
     //275,210,312,120
     self.autocompleteTableView.delegate = self;
+    //[autocompleteTableView setDelegate:self];
     self.autocompleteTableView.dataSource = self;
     autocompleteTableView.scrollEnabled = YES;
     autocompleteTableView.hidden = YES;
@@ -422,7 +424,7 @@
 #pragma mark UITextFieldDelegate methods
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    autocompleteTableView.hidden = NO;
+    self.autocompleteTableView.hidden = NO;
     
     NSString *substring = [NSString stringWithString:textField.text];
     substring = [substring stringByReplacingCharactersInRange:range withString:string];
@@ -459,7 +461,22 @@
     self.eWordEntered.text = selectedCell.textLabel.text;
     
     //[self goPressed];
+    if(tableView == autocompleteTableView){
+        //The autocomplete table view is the one that fired the didSelect delegate method
+        //So hide the autocomplete table.
+        //do whatever else you need to do to empty the autocompleteTableView's data source
+        //or/and simply hide the table after that
+        [autocompleteTableView setHidden:YES];
+    }
     
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLog(@"TOUCHED"); // never happens
+    //for (UITouch *touch in touches) {
+    [autocompleteTableView setHidden:YES];
+    //}
 }
 
 @end
