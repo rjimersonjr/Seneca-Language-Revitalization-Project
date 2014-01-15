@@ -66,7 +66,6 @@
     [array_when_choices addObject:@"will do it"];
     [array_when_choices addObject:@"might do it"];
     [array_when_choices addObject:@"does it"];
-    [array_when_choices addObject:@"will do it"];
     [array_when_choices addObject:@"is doing it"];
     [array_when_choices addObject:@"has done it"];
     [array_when_choices addObject:@"do it!"];
@@ -102,6 +101,7 @@
     NSLog(@"In the Get_Output method %@", self.seneca_word.english_word);
     //http://senecadictionary.com/output?inp=sing&id=1&when=did+it&who=I&done_to=&direction=
     NSString *urlGetMatchesString = [NSString stringWithFormat:@"http://senecadictionary.com/output?inp=%@&id=%@&when=%@&who=%@&done_to=%@&direction=%@", seneca_word_object.english_word, seneca_word_object.ids, seneca_word_object.when, seneca_word_object.who, seneca_word_object.done_to, seneca_word_object.direction];
+    NSLog(@"The string is: %@", urlGetMatchesString);
     
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.spinner.center = CGPointMake(300, 400);
@@ -173,12 +173,42 @@
         if([[array_when_choices objectAtIndex:row] isEqual: @"did it"]){
         seneca_word.when = @"did+it";
         }
+        else if([[array_when_choices objectAtIndex:row] isEqual: @"will do it"]){
+            seneca_word.when = @"will+do+it";
+        }
+        else if([[array_when_choices objectAtIndex:row] isEqual: @"might do it"]){
+            seneca_word.when = @"might+do+it";
+        }
+        else if([[array_when_choices objectAtIndex:row] isEqual: @"does it"]){
+            seneca_word.when = @"does+it";
+        }
+        else if([[array_when_choices objectAtIndex:row] isEqual: @"will do it"]){
+            seneca_word.when = @"will+do+it";
+        }
+        else if([[array_when_choices objectAtIndex:row] isEqual: @"is doing it"]){
+            seneca_word.when = @"is+doing+it";
+        }
+        else if([[array_when_choices objectAtIndex:row] isEqual: @"has done it"]){
+            seneca_word.when = @"has+done+it";
+        }
+        else if([[array_when_choices objectAtIndex:row] isEqual: @"do it"]){
+            seneca_word.when = @"do+it";
+        }
         NSLog(@"The when row picked is: %@", seneca_word.when);
     }
-    else{
-        seneca_word.who = [array_who_choices objectAtIndex:row];
-        NSLog(@"The who row picked is: %@", seneca_word.who);
-    }
+    else if(pickerView == picker_who){
+        //seneca_word.who = [array_who_choices objectAtIndex:row];
+        NSLog(@"The picker_who is being picked");
+        if([[array_who_choices objectAtIndex:row] isEqual: @"I"]){
+            seneca_word.who = @"I";
+            NSLog(@"picker_who is: %@", seneca_word.who);
+        }//if
+        else if([[array_who_choices objectAtIndex:row] isEqual: @"just you"]){
+            seneca_word.who = @"just+you";
+            NSLog(@"picker_who is: %@", seneca_word.who);
+        }//else if
+    
+    }//else if(pickerView == pickerView)
     //label.font = [UIFont fontWithName:[data objectAtIndex:row] size:16.0];
 }
 

@@ -42,6 +42,7 @@
     seneca_word.who = @"";
     seneca_word.done_to = @"";
     seneca_word.direction = @"";
+    seneca_word.english_input = @"";
     
     //self.pastUrls = [[NSMutableArray alloc] initWithObjects:@"www.google.com", nil];
     //self.pastUrls = dataArray;
@@ -150,10 +151,6 @@
     [self.view endEditing:YES]; 
     [_eWordEntered resignFirstResponder];
 }
-
-
-//++++++++++++++++++++++++++++++++++++++++++PickerView Stuff++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Number of components.
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
