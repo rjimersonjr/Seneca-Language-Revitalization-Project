@@ -42,23 +42,28 @@
     self.lblEnglish_input.text = seneca_word.english_input;
     [self.view addSubview:self.lblEnglish_input];
     
+    
+    NSLog(@"In the dropDownMenuVC the the direction is: %@", seneca_word.direction);
+    
     seneca_word.english_input = [seneca_word.english_input stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     
-    //NSRange result = [seneca_word.english_input rangeOfString:@"this"];
-    if([seneca_word.english_input rangeOfString:@"this"].location != NSNotFound){
-      seneca_word.direction = @"toward";
-        NSLog(@"It's a translocative");
-    }
-    else if([seneca_word.english_input rangeOfString:@"that"].location != NSNotFound){
-        seneca_word.direction = @"away";
-        NSLog(@"It's a cislocative");
-    }
-    else{
-        seneca_word.direction = @"";
-        NSLog(@"No direction");
-    }
     
-    NSLog(@"We are in the drop down menus! %@", seneca_word.english_input);
+    
+    //NSRange result = [seneca_word.english_input rangeOfString:@"this"];
+//    if([seneca_word.english_input rangeOfString:@"this"].location != NSNotFound){
+//      seneca_word.direction = @"toward";
+//        NSLog(@"It's a translocative");
+//    }
+//    else if([seneca_word.english_input rangeOfString:@"that"].location != NSNotFound){
+//        seneca_word.direction = @"away";
+//        NSLog(@"It's a cislocative");
+//    }
+//    else{
+//        seneca_word.direction = @"";
+//        NSLog(@"No direction");
+//    }
+    
+//    NSLog(@"We are in the drop down menus! %@", seneca_word.english_input);
     
     array_when_choices = [[NSMutableArray alloc] init];
     [array_when_choices addObject:@"-Select-"];
@@ -207,6 +212,30 @@
             seneca_word.who = @"just+you";
             NSLog(@"picker_who is: %@", seneca_word.who);
         }//else if
+        else if([[array_who_choices objectAtIndex:row] isEqual: @"you two"]){
+            seneca_word.who = @"you+two";
+            NSLog(@"picker_who is: %@", seneca_word.who);
+        }
+        else if([[array_who_choices objectAtIndex:row] isEqual: @"you three or more"]){
+            seneca_word.who = @"you+three+or+more";
+            NSLog(@"picker_who is: %@", seneca_word.who);
+        }
+        else if([[array_who_choices objectAtIndex:row] isEqual: @"he"]){
+            seneca_word.who = @"he";
+            NSLog(@"picker_who is: %@", seneca_word.who);
+        }
+        else if([[array_who_choices objectAtIndex:row] isEqual: @"she"]){
+            seneca_word.who = @"she";
+            NSLog(@"picker_who is: %@", seneca_word.who);
+        }
+        else if([[array_who_choices objectAtIndex:row] isEqual: @"it"]){
+            seneca_word.who = @"it";
+            NSLog(@"picker_who is: %@", seneca_word.who);
+        }
+        else if([[array_who_choices objectAtIndex:row] isEqual: @"two of us not including you"]){
+            seneca_word.who = @"two+of+us+not+including+you";
+            NSLog(@"picker_who is: %@", seneca_word.who);
+        }
     
     }//else if(pickerView == pickerView)
     //label.font = [UIFont fontWithName:[data objectAtIndex:row] size:16.0];

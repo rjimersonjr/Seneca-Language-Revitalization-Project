@@ -161,7 +161,22 @@
     //NSString *englishInput = [[dataArray objectAtIndex: row] stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *englishInput = [dataArray objectAtIndex: row];
     self.seneca_word.english_input = englishInput;
-    NSLog(@"The class variable self.seneca_word_input is: %@", self.seneca_word.english_input);
+    //NSLog(@"The class variable self.seneca_word_input is: %@", self.seneca_word.english_input);
+    
+    NSLog(@"The original selected is: %@", [dataArray objectAtIndex: row]);
+    if([[dataArray objectAtIndex: row] rangeOfString:@"this"].location != NSNotFound){
+        seneca_word.direction = @"toward";
+        NSLog(@"It's a cislocative the direction is: %@", seneca_word.direction);
+    }
+    else if([[dataArray objectAtIndex: row] rangeOfString:@"that"].location != NSNotFound){
+        
+        seneca_word.direction = @"away";
+        NSLog(@"It's a translocative the direction is: %@", seneca_word.direction);
+    }
+    else{
+        seneca_word.direction = @"";
+        NSLog(@"No direction");
+    }
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
@@ -170,6 +185,8 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+
+    //NSLog(@"The first element is: %@", [dataArray objectAtIndex:0]);
     return [dataArray objectAtIndex: row];
 }
 
@@ -186,7 +203,6 @@
     nextViewController.seneca_word = self.seneca_word;
     
 }
-
 -(void)Get_Matches:(NSString*)englishWord{
     
     NSLog(@"In the Get_Matches method");
@@ -210,19 +226,14 @@
         alert = [[UIAlertView alloc] initWithTitle:@"Network Issues" message:@"Unable to get the data from the server" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     }
 }
-
-
-
 -(void)setReceivedData:(NSMutableData*)pReceivedData
 {
     receivedData = pReceivedData;
     //[receivedData appendData:data];
 }
-
 -(NSMutableData *) getReceivedData{
     return receivedData;
 }
-
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     // It can be called multiple times, for example in the case of a
@@ -236,7 +247,6 @@
     [receivedData setLength:0];
     
 }
-
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     
@@ -247,7 +257,6 @@
     [receivedData appendData:data];
     
 }
-
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     // inform the user
@@ -259,7 +268,6 @@
           [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
     
 }
-
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     
@@ -331,7 +339,6 @@
     
     
 }//(void)connectionDidFinishLoading
-
 -(void)buildDirectionalMenu:(NSDictionary *)choiceDict{
     //in this method we build the choices menu
     
@@ -357,6 +364,20 @@
     //self.seneca_word.english_input = firstElementOfDataArray;
     //NSLog(@"After we cleaned it up: %@", firstElementOfDataArray);
     
+    if([[dataArray objectAtIndex: 0] rangeOfString:@"this"].location != NSNotFound){
+        seneca_word.direction = @"toward";
+        NSLog(@"It's a cislocative, direction is: %@", seneca_word.direction);
+    }
+    else if([[dataArray objectAtIndex: 0] rangeOfString:@"that"].location != NSNotFound){
+        
+        seneca_word.direction = @"away";
+        NSLog(@"It's a translocative, direction is: %@", seneca_word.direction);
+    }
+    else{
+        seneca_word.direction = @"";
+        NSLog(@"No direction");
+    }
+    
     [self.directionalPicker selectRow:0 inComponent:0 animated:YES];
     [self.nextDirectionalButton setHidden:NO];
     [self.directionalPicker reloadAllComponents];
@@ -364,7 +385,6 @@
     
     [spinner stopAnimating];
 }
-
 -(IBAction)directionalButtonPressed:(id)sender{
     NSLog(@"We are in the nextDirectionPressed and the english input is: %@", self.seneca_word.english_input);
     //NSInteger *row = [choicePicker selectedRowInComponent:0];
@@ -378,7 +398,6 @@
     [self performSegueWithIdentifier:@"segue_drop_downVC" sender:self];
     //[self Get_Matches:self.seneca_word.english_input];
 }
-
 -(void) getAutoCompleteArray{
     //NSArray *autoCompleteArray;
     
@@ -410,7 +429,6 @@
     
     //return autoCompleteArray;
 }
-
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
     
     // Put anything that starts with this substring into the autocompleteUrls array
@@ -424,7 +442,6 @@
     }
     [autocompleteTableView reloadData];
 }
-
 #pragma mark UITextFieldDelegate methods
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
