@@ -7,6 +7,7 @@
 //
 
 #import "slrpViewController.h"
+#import <QuartzCore/QuartzCore.h>
 //#import "JSONutils.h"
 
 @interface slrpViewController ()
@@ -52,6 +53,12 @@
     self.autocompleteTableView.delegate = self;
     //[autocompleteTableView setDelegate:self];
     self.autocompleteTableView.dataSource = self;
+    //self.autocompleteTableView.layer.borderWidth = 1.0;
+    CALayer *layer = self.autocompleteTableView.layer;
+    [layer setMasksToBounds:YES];
+    [layer setCornerRadius: 4.0];
+    [layer setBorderWidth:1.0];
+    [layer setBorderColor:[[UIColor colorWithWhite: 0.8 alpha: 1.0] CGColor]];
     autocompleteTableView.scrollEnabled = YES;
     autocompleteTableView.hidden = YES;
     [self.view addSubview:autocompleteTableView];
